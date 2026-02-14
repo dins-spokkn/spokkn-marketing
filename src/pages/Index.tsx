@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import MarqueeTicker from "@/components/MarqueeTicker";
 import ShowsCarousel from "@/components/ShowsCarousel";
 import LatestEpisodes from "@/components/LatestEpisodes";
 import BrowseByTopic from "@/components/BrowseByTopic";
@@ -10,6 +11,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <Hero />
+      <MarqueeTicker />
       <ShowsCarousel />
       <LatestEpisodes />
       <BrowseByTopic />
