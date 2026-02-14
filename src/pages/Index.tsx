@@ -1,11 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import WhySpokkn from "@/components/WhySpokkn";
-import FeaturedExperiences from "@/components/FeaturedExperiences";
-import HowItWorks from "@/components/HowItWorks";
-import Testimonials from "@/components/Testimonials";
-import CommunityStats from "@/components/CommunityStats";
-import CTASection from "@/components/CTASection";
+import ShowsCarousel from "@/components/ShowsCarousel";
+import LatestEpisodes from "@/components/LatestEpisodes";
+import BrowseByTopic from "@/components/BrowseByTopic";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -13,12 +10,9 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <Hero />
-      <WhySpokkn />
-      <FeaturedExperiences />
-      <HowItWorks />
-      <Testimonials />
-      <CommunityStats />
-      <CTASection />
+      <ShowsCarousel />
+      <LatestEpisodes />
+      <BrowseByTopic />
       <Footer />
     </div>
   );
