@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Search, Menu, X, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import SpokknLogo from "./SpokknLogo";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -23,10 +24,7 @@ const Navbar = () => {
       <div className="container flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
         <a href="#" className="flex items-center gap-1 shrink-0">
-          <span className="text-xl md:text-2xl font-extrabold tracking-tight text-foreground">
-            sp<span className="text-gradient">okk</span>n
-          </span>
-          <span className="text-accent text-lg">°</span>
+          <SpokknLogo />
         </a>
 
         {/* Center search - desktop */}
