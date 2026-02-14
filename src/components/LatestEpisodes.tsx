@@ -7,13 +7,13 @@ import episode4 from "@/assets/episode-4.jpg";
 import episode5 from "@/assets/episode-5.jpg";
 import { useRef } from "react";
 
-const tags = ["Debates", "Storytelling", "Role-Play", "Discussions"];
+const tags = ["Storytelling", "Role Play", "Improv", "Debate", "Topic of Discussion"];
 const episodes = [
-  { img: episode1, title: "Public Speaking" },
-  { img: episode2, title: "Travel English" },
-  { img: episode3, title: "Daily Life" },
-  { img: episode4, title: "Sports Talk" },
-  { img: episode5, title: "Business Chat" },
+  { img: episode1, title: "Storytelling" },
+  { img: episode2, title: "Role Play" },
+  { img: episode3, title: "Improv" },
+  { img: episode4, title: "Debate" },
+  { img: episode5, title: "Topic of Discussion" },
 ];
 
 const LatestEpisodes = () => {
@@ -34,7 +34,7 @@ const LatestEpisodes = () => {
         >
           <p className="text-sm text-muted-foreground font-medium mb-1">03</p>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-foreground leading-tight mb-10">
-            Or explore<br />our latest activities
+            Explore the 5<br />activity types
           </h2>
         </motion.div>
 
@@ -58,7 +58,7 @@ const LatestEpisodes = () => {
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-2">
                 <div className="w-1 h-5 bg-accent rounded-full" />
-                <span className="text-sm font-semibold text-foreground">Activities</span>
+                <span className="text-sm font-semibold text-foreground">Activity Types</span>
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-sm text-muted-foreground">See All (120+)</span>

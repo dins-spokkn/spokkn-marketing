@@ -8,28 +8,28 @@ import { useRef } from "react";
 const shows = [
   {
     image: show1,
-    title: "Open Conversations",
-    description: "Join free-flowing discussions on everyday topics. Build confidence speaking naturally with peers.",
-    author: "Coach Sarah",
-    tag: "Popular",
+    title: "Storytelling Session",
+    description: "Share and listen to personal stories. Improve narrative skills and vocabulary in a relaxed setting.",
+    author: "Host Priya",
+    tag: "Free",
     tagColor: "bg-accent text-accent-foreground",
     bg: "bg-card",
   },
   {
     image: show2,
-    title: "Debate Practice",
-    description: "Argue perspectives, sharpen critical thinking, and learn to express opinions fluently.",
-    author: "Coach Amir",
-    tag: "Trending",
+    title: "Debate Arena",
+    description: "Pick a side and argue your case. Build critical thinking and persuasion skills in English.",
+    author: "Host Arjun",
+    tag: "₹49",
     tagColor: "bg-primary text-primary-foreground",
     bg: "bg-lavender",
   },
   {
     image: show3,
-    title: "Role-Play Sessions",
-    description: "Simulate real-life scenarios — job interviews, travel situations, and business meetings.",
-    author: "Coach Maya",
-    tag: "New",
+    title: "Improv Workshop",
+    description: "Think on your feet with spontaneous scenarios. No scripts — just real-time English practice.",
+    author: "Host Meera",
+    tag: "Popular",
     tagColor: "bg-foreground text-primary-foreground",
     bg: "bg-card",
   },
@@ -62,11 +62,11 @@ const ShowsCarousel = () => {
           <div>
             <p className="text-sm text-muted-foreground font-medium mb-1">02</p>
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-foreground leading-tight">
-              Get started with<br />our featured sessions
+              Upcoming sessions<br />from verified hosts
             </h3>
           </div>
           <p className="text-sm text-muted-foreground max-w-sm">
-            Our goal is to build sessions with <span className="text-accent font-medium">three</span> key characteristics — they have purpose, they are consistent, and they help cultivate real spoken English fluency.
+            Hosts create sessions based on activities. Browse, claim or buy a spot, and join when the session goes live.
           </p>
         </div>
 
@@ -105,14 +105,14 @@ const ShowsCarousel = () => {
                     {show.author[0]}
                   </div>
                   <div>
-                    <p className="text-xs text-muted-foreground">Coach</p>
+                    <p className="text-xs text-muted-foreground">Host</p>
                     <p className="text-xs font-semibold text-foreground">{show.author}</p>
                   </div>
                 </div>
                 <h4 className="text-lg font-bold text-foreground mb-2">{show.title}</h4>
                 <p className="text-sm text-muted-foreground flex-1">{show.description}</p>
                 <div className="flex items-center justify-between mt-4 pt-3 border-t border-border">
-                  <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Join Session</span>
+                  <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Claim Spot</span>
                   <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors cursor-pointer">
                     <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform" />
                   </div>

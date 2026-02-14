@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import topicImg from "@/assets/topic-wellness.jpg";
 
 const topics = [
-  { name: "Business English", count: 126, emoji: "💼" },
-  { name: "Daily Conversations", count: 84, emoji: "☕" },
-  { name: "Interview Prep", count: 65, emoji: "🎯" },
-  { name: "Public Speaking", count: 73, emoji: "🎤" },
-  { name: "Travel English", count: 98, emoji: "✈️" },
+  { name: "Storytelling", count: 126, emoji: "📖" },
+  { name: "Role Play", count: 84, emoji: "🎭" },
+  { name: "Improv", count: 65, emoji: "⚡" },
+  { name: "Debate", count: 73, emoji: "⚔️" },
+  { name: "Topic of Discussion", count: 98, emoji: "💬" },
 ];
 
 const BrowseByTopic = () => {
@@ -26,7 +26,7 @@ const BrowseByTopic = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          Or browse<br />by topic
+          Browse by<br />activity type
           {/* Decorative star */}
           <span className="absolute -top-4 -right-2 md:right-20 text-accent text-2xl md:text-3xl animate-pulse">✦</span>
         </motion.h2>
@@ -64,7 +64,7 @@ const BrowseByTopic = () => {
                 <span className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-extrabold text-foreground/20 group-hover:text-foreground transition-colors flex-1">
                   {topic.name}
                 </span>
-                <span className="text-sm text-muted-foreground whitespace-nowrap">{topic.count} Sessions</span>
+                <span className="text-sm text-muted-foreground whitespace-nowrap">{topic.count} Activities</span>
                 <div className="w-8 h-8 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary group-hover:text-primary-foreground transition-all">
                   <ArrowRight className="w-4 h-4 -translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all" />
                   <Users className="w-4 h-4 absolute group-hover:opacity-0 transition-opacity" />

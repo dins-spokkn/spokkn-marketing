@@ -1,17 +1,17 @@
 import { motion } from "framer-motion";
 
 const items = [
-  "Speak more. Worry less.",
+  "Create your activity",
   "✦",
-  "50K+ learners worldwide",
+  "Join live sessions",
   "✦",
-  "Real conversations",
+  "5 activity types",
   "✦",
-  "Live sessions daily",
+  "Verified hosts",
   "✦",
-  "Build confidence",
+  "Storytelling · Role Play · Improv · Debate · Discussion",
   "✦",
-  "Practice with peers",
+  "Become a host",
   "✦",
 ];
 

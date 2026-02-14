@@ -49,7 +49,7 @@ const Navbar = () => {
               </div>
             ))}
             <div className="flex items-center pl-3 text-sm font-medium text-muted-foreground">
-              +50k Learners
+              Activities · Sessions
             </div>
           </div>
           <button className="text-sm font-medium text-foreground hover:text-primary transition-colors">
@@ -89,9 +89,9 @@ const Navbar = () => {
                 />
               </div>
               <div className="flex flex-col gap-3">
-                <a href="#" className="text-sm font-medium text-foreground py-1">Features</a>
-                <a href="#" className="text-sm font-medium text-foreground py-1">How It Works</a>
-                <a href="#" className="text-sm font-medium text-foreground py-1">About Us</a>
+                <a href="#" className="text-sm font-medium text-foreground py-1">Activities</a>
+                <a href="#" className="text-sm font-medium text-foreground py-1">Sessions</a>
+                <a href="#" className="text-sm font-medium text-foreground py-1">Become a Host</a>
               </div>
               <div className="flex items-center gap-3 pt-2 border-t border-border">
                 <button className="text-sm font-medium text-foreground">Log In</button>
