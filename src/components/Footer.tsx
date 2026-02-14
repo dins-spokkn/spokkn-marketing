@@ -2,13 +2,34 @@ import { ArrowUpRight } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-foreground text-primary-foreground py-16">
-      <div className="container">
+    <footer className="bg-foreground text-primary-foreground py-16 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute top-10 right-10 w-64 h-64 rounded-full border border-primary-foreground/5 hidden lg:block" />
+      <div className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full border border-primary-foreground/5 hidden lg:block" />
+
+      <div className="container relative">
+        {/* Big CTA before footer links */}
+        <div className="mb-16 pb-16 border-b border-primary-foreground/10">
+          <h3 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+            Ready to speak<br />
+            <span className="text-accent">confidently</span>?
+          </h3>
+          <div className="flex flex-col sm:flex-row items-start gap-4">
+            <button className="bg-accent text-accent-foreground font-semibold px-7 py-3.5 rounded-full hover:shadow-card-hover transition-all hover:-translate-y-0.5 flex items-center gap-2 group">
+              Book Your First Session
+              <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform" />
+            </button>
+            <p className="text-sm text-primary-foreground/50 max-w-xs mt-2 sm:mt-0 sm:pt-2">
+              Join 50,000+ learners building real English fluency through live practice.
+            </p>
+          </div>
+        </div>
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           {/* Logo */}
           <div className="col-span-2 md:col-span-1">
             <span className="text-2xl font-extrabold tracking-tight">
-              sp<span className="text-gradient">okk</span>n<span className="text-accent">°</span>
+              sp<span className="text-accent">okk</span>n<span className="text-accent">°</span>
             </span>
             <p className="text-sm text-primary-foreground/60 mt-3 max-w-xs">
               Speak more. Worry less. Where real conversations build real confidence.

@@ -11,6 +11,8 @@ const shows = [
     title: "Open Conversations",
     description: "Join free-flowing discussions on everyday topics. Build confidence speaking naturally with peers.",
     author: "Coach Sarah",
+    tag: "Popular",
+    tagColor: "bg-accent text-accent-foreground",
     bg: "bg-card",
   },
   {
@@ -18,6 +20,8 @@ const shows = [
     title: "Debate Practice",
     description: "Argue perspectives, sharpen critical thinking, and learn to express opinions fluently.",
     author: "Coach Amir",
+    tag: "Trending",
+    tagColor: "bg-primary text-primary-foreground",
     bg: "bg-lavender",
   },
   {
@@ -25,6 +29,8 @@ const shows = [
     title: "Role-Play Sessions",
     description: "Simulate real-life scenarios — job interviews, travel situations, and business meetings.",
     author: "Coach Maya",
+    tag: "New",
+    tagColor: "bg-foreground text-primary-foreground",
     bg: "bg-card",
   },
 ];
@@ -33,7 +39,10 @@ const ShowsCarousel = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-16 md:py-24 relative">
+      {/* Decorative circle */}
+      <div className="absolute -top-20 -left-20 w-40 h-40 rounded-full border border-border/50 hidden lg:block" />
+      
       <div className="container">
         {/* Header */}
         <div className="flex items-center justify-between mb-10">
@@ -69,18 +78,26 @@ const ShowsCarousel = () => {
           {shows.map((show, i) => (
             <motion.div
               key={show.title}
-              className={`${show.bg} rounded-2xl overflow-hidden border border-border shadow-card hover:shadow-card-hover transition-all hover:-translate-y-1 min-w-[280px] snap-start flex flex-col`}
+              className={`${show.bg} rounded-2xl overflow-hidden border border-border shadow-card hover:shadow-card-hover transition-all hover:-translate-y-1 min-w-[280px] snap-start flex flex-col group`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <div className="aspect-[4/3] overflow-hidden">
+              <div className="aspect-[4/3] overflow-hidden relative">
                 <img
                   src={show.image}
                   alt={show.title}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
+                {/* Floating tag */}
+                <span className={`absolute top-3 left-3 ${show.tagColor} text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full`}>
+                  {show.tag}
+                </span>
+                {/* Issue number */}
+                <span className="absolute bottom-3 right-3 text-card text-4xl font-extrabold opacity-30 leading-none">
+                  0{i + 1}
+                </span>
               </div>
               <div className="p-5 flex flex-col flex-1">
                 <div className="flex items-center gap-2 mb-3">
@@ -95,9 +112,9 @@ const ShowsCarousel = () => {
                 <h4 className="text-lg font-bold text-foreground mb-2">{show.title}</h4>
                 <p className="text-sm text-muted-foreground flex-1">{show.description}</p>
                 <div className="flex items-center justify-between mt-4 pt-3 border-t border-border">
-                  <span className="text-sm font-medium text-foreground">Join Session</span>
-                  <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer">
-                    <ArrowUpRight className="w-4 h-4" />
+                  <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Join Session</span>
+                  <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors cursor-pointer">
+                    <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform" />
                   </div>
                 </div>
               </div>
