@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import SpokknLogo from "./SpokknLogo";
 
 const Footer = () => {
   return (
@@ -11,16 +12,16 @@ const Footer = () => {
         {/* Big CTA before footer links */}
         <div className="mb-16 pb-16 border-b border-primary-foreground/10">
           <h3 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
-            Ready to speak<br />
-            <span className="text-accent">confidently</span>?
+            Ready to start<br />
+            <span className="text-accent">speaking</span>?
           </h3>
           <div className="flex flex-col sm:flex-row items-start gap-4">
             <button className="bg-accent text-accent-foreground font-semibold px-7 py-3.5 rounded-full hover:shadow-card-hover transition-all hover:-translate-y-0.5 flex items-center gap-2 group">
-              Book Your First Session
+              Create Your First Activity
               <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform" />
             </button>
             <p className="text-sm text-primary-foreground/50 max-w-xs mt-2 sm:mt-0 sm:pt-2">
-              Join 50,000+ learners building real English fluency through live practice.
+              Create activities, join sessions, and practice English with real people worldwide.
             </p>
           </div>
         </div>
@@ -28,11 +29,9 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           {/* Logo */}
           <div className="col-span-2 md:col-span-1">
-            <span className="text-2xl font-extrabold tracking-tight">
-              sp<span className="text-accent">okk</span>n<span className="text-accent">°</span>
-            </span>
+            <SpokknLogo variant="light" />
             <p className="text-sm text-primary-foreground/60 mt-3 max-w-xs">
-              Speak more. Worry less. Where real conversations build real confidence.
+              Create your activity. Join sessions. Practice English with real conversations.
             </p>
           </div>
 
@@ -40,7 +39,7 @@ const Footer = () => {
           <div>
             <h4 className="text-sm font-semibold mb-4 text-primary-foreground/80">Product</h4>
             <ul className="flex flex-col gap-2.5">
-              {["About", "How It Works", "Pricing", "FAQs"].map((item) => (
+              {["Activities", "Sessions", "Become a Host", "Pricing"].map((item) => (
                 <li key={item}>
                   <a href="#" className="text-sm text-primary-foreground/50 hover:text-primary-foreground transition-colors">
                     {item}
@@ -54,7 +53,7 @@ const Footer = () => {
           <div>
             <h4 className="text-sm font-semibold mb-4 text-primary-foreground/80">Company</h4>
             <ul className="flex flex-col gap-2.5">
-              {["Blog", "Community", "Careers", "Contact"].map((item) => (
+              {["About", "Blog", "Careers", "Contact"].map((item) => (
                 <li key={item}>
                   <a href="#" className="text-sm text-primary-foreground/50 hover:text-primary-foreground transition-colors">
                     {item}

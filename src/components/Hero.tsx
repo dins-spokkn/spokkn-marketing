@@ -55,9 +55,9 @@ const Hero = () => {
         <div className="flex items-start gap-8 mb-8">
           <div className="hidden md:flex flex-col gap-1 text-sm">
             <span className="text-accent text-lg">✦</span>
-            <a href="#" className="font-semibold text-foreground hover:text-primary transition-colors">Features</a>
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">How It Works</a>
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">About Us</a>
+            <a href="#" className="font-semibold text-foreground hover:text-primary transition-colors">Activities</a>
+            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Sessions</a>
+            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Become a Host</a>
           </div>
 
           <div className="flex-1">
@@ -71,7 +71,7 @@ const Hero = () => {
                   transition={{ duration: 0.4 }}
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                  LIVE SESSIONS HAPPENING NOW
+                  CREATE ACTIVITIES · JOIN SESSIONS
                 </motion.div>
 
                 <motion.h1
@@ -80,20 +80,17 @@ const Hero = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7 }}
                 >
-                  Speak with{" "}
+                  Create your activity{" "}
                   <span className="inline-flex items-center gap-2">
                     <ArrowUpRight className="w-6 h-6 md:w-8 md:h-8 text-accent" />
                   </span>
                   <br />
-                  confidence that{" "}
-                  <br className="hidden sm:block" />
                   <span className="text-gradient relative">
-                    transforms
-                    {/* Underline doodle */}
+                    Join
                     <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 200 12" fill="none">
                       <path d="M2 8 Q 40 2, 80 8 Q 120 14, 160 6 Q 180 3, 198 7" stroke="hsl(var(--accent))" strokeWidth="2.5" strokeLinecap="round" fill="none" />
                     </svg>
-                  </span> your world
+                  </span>{" "}Sessions.
                 </motion.h1>
 
                 <motion.div
@@ -102,7 +99,7 @@ const Hero = () => {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3, duration: 0.5 }}
                 >
-                  <span>We've hosted over <strong className="text-foreground">10,000</strong> live sessions, helping nearly <strong className="text-foreground">50,000 learners</strong> build real spoken English fluency.</span>
+                  <span>Choose from <strong className="text-foreground">5 activity types</strong> — Storytelling, Role Play, Improv, Debate & Topic of Discussion. Join sessions hosted by expert <strong className="text-foreground">Spokkn Hosts</strong>.</span>
                 </motion.div>
 
                 <motion.div
@@ -112,13 +109,13 @@ const Hero = () => {
                   transition={{ delay: 0.5, duration: 0.5 }}
                 >
                   <button className="bg-gradient-brand text-primary-foreground font-semibold px-7 py-3.5 rounded-full hover:shadow-card-hover transition-all hover:-translate-y-0.5 flex items-center gap-2 group">
-                    Book Your First Session
+                    Create Activity
                     <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform" />
                   </button>
-                  <a href="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
-                    HOW IT WORKS
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </a>
+                  <button className="border border-border text-foreground font-semibold px-7 py-3.5 rounded-full hover:bg-secondary transition-all flex items-center gap-2">
+                    Browse Sessions
+                    <ArrowUpRight className="w-4 h-4" />
+                  </button>
                 </motion.div>
               </div>
             </div>
@@ -144,13 +141,13 @@ const Hero = () => {
             </div>
             <div className="flex flex-col gap-2">
               <span className="inline-flex items-center gap-1 bg-card/20 backdrop-blur rounded-full px-3 py-1 text-xs font-medium w-fit">
-                New Topic <span className="text-accent">+</span>
+                Storytelling <span className="text-accent">✦</span>
               </span>
               <span className="inline-flex items-center gap-1 bg-card/20 backdrop-blur rounded-full px-3 py-1 text-xs font-medium w-fit">
-                + Live Session
+                Role Play <span className="text-accent">✦</span>
               </span>
               <span className="inline-flex bg-accent/20 text-accent rounded-full px-3 py-1 text-xs font-semibold w-fit">
-                +50K Learners
+                5 Activity Types
               </span>
             </div>
             <MessageCircle className="w-10 h-10 text-accent mt-2" />
@@ -185,7 +182,7 @@ const Hero = () => {
           <div className="bg-accent rounded-2xl p-4 flex flex-col justify-between text-accent-foreground aspect-square sm:aspect-auto relative">
             <span className="text-4xl md:text-5xl font-serif leading-none opacity-20 absolute top-2 left-3">"</span>
             <p className="text-xs md:text-sm font-semibold leading-snug mt-6">
-              One of the most engaging live English speaking platforms for learners worldwide.
+              Create activities. Hosts run sessions. You join, practice, and grow your English.
             </p>
             <div className="flex items-center justify-between mt-3">
               <Mic className="w-8 h-8 opacity-60" />

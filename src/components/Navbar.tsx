@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Search, Menu, X, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import SpokknLogo from "./SpokknLogo";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -23,10 +24,7 @@ const Navbar = () => {
       <div className="container flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
         <a href="#" className="flex items-center gap-1 shrink-0">
-          <span className="text-xl md:text-2xl font-extrabold tracking-tight text-foreground">
-            sp<span className="text-gradient">okk</span>n
-          </span>
-          <span className="text-accent text-lg">°</span>
+          <SpokknLogo />
         </a>
 
         {/* Center search - desktop */}
@@ -51,7 +49,7 @@ const Navbar = () => {
               </div>
             ))}
             <div className="flex items-center pl-3 text-sm font-medium text-muted-foreground">
-              +50k Learners
+              Activities · Sessions
             </div>
           </div>
           <button className="text-sm font-medium text-foreground hover:text-primary transition-colors">
@@ -91,9 +89,9 @@ const Navbar = () => {
                 />
               </div>
               <div className="flex flex-col gap-3">
-                <a href="#" className="text-sm font-medium text-foreground py-1">Features</a>
-                <a href="#" className="text-sm font-medium text-foreground py-1">How It Works</a>
-                <a href="#" className="text-sm font-medium text-foreground py-1">About Us</a>
+                <a href="#" className="text-sm font-medium text-foreground py-1">Activities</a>
+                <a href="#" className="text-sm font-medium text-foreground py-1">Sessions</a>
+                <a href="#" className="text-sm font-medium text-foreground py-1">Become a Host</a>
               </div>
               <div className="flex items-center gap-3 pt-2 border-t border-border">
                 <button className="text-sm font-medium text-foreground">Log In</button>
