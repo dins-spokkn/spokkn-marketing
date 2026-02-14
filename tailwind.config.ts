@@ -50,11 +50,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sky: {
+        "sky-brand": {
           DEFAULT: "hsl(var(--sky))",
           light: "hsl(var(--sky-light))",
         },
         "blue-light": "hsl(var(--blue-light))",
+        lavender: "hsl(var(--lavender))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
