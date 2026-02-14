@@ -55,9 +55,9 @@ const Hero = () => {
         <div className="flex items-start gap-8 mb-8">
           <div className="hidden md:flex flex-col gap-1 text-sm">
             <span className="text-accent text-lg">✦</span>
-            <a href="#" className="font-semibold text-foreground hover:text-primary transition-colors">Features</a>
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">How It Works</a>
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">About Us</a>
+            <a href="#" className="font-semibold text-foreground hover:text-primary transition-colors">Activities</a>
+            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Sessions</a>
+            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Become a Host</a>
           </div>
 
           <div className="flex-1">
