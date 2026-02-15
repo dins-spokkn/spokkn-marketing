@@ -5,20 +5,20 @@ interface SpokknLogoProps {
 }
 
 const sizes = {
-  sm: "text-lg",
-  md: "text-xl md:text-2xl",
-  lg: "text-2xl md:text-3xl",
+  sm: "h-6",
+  md: "h-8 md:h-10",
+  lg: "h-10 md:h-12",
 };
 
 const SpokknLogo = ({ className = "", size = "md", variant = "dark" }: SpokknLogoProps) => {
-  const textColor = variant === "dark" ? "text-foreground" : "text-primary-foreground";
+  const logoSrc = variant === "dark" ? "/src/assets/logo/logo-dark.png" : "/src/assets/logo/logo-light.png";
   
   return (
-    <span className={`${sizes[size]} font-extrabold tracking-tight ${textColor} ${className}`}>
-      spo
-      <span className="text-primary">&lt;&gt;</span>
-      n
-    </span>
+    <img 
+      src={logoSrc}
+      alt="Spokkn Logo" 
+      className={`${sizes[size]} ${className}`}
+    />
   );
 };
 
