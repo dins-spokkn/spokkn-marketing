@@ -28,14 +28,14 @@ const Navbar = () => {
         </a>
 
         {/* Center search - desktop */}
-        <div className="hidden md:flex items-center bg-secondary rounded-full px-4 py-2 gap-2 w-full max-w-xs mx-6">
+        {/* <div className="hidden md:flex items-center bg-secondary rounded-full px-4 py-2 gap-2 w-full max-w-xs mx-6">
           <Search className="w-4 h-4 text-muted-foreground" />
           <input
             type="text"
             placeholder="Search"
             className="bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none w-full"
           />
-        </div>
+        </div> */}
 
         {/* Right side - desktop */}
         <div className="hidden md:flex items-center gap-4">
@@ -52,11 +52,8 @@ const Navbar = () => {
               Activities · Sessions
             </div>
           </div>
-          <button className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-            Log In
-          </button>
           <button className="bg-gradient-brand text-primary-foreground text-sm font-semibold px-5 py-2.5 rounded-full hover:shadow-card transition-all hover:-translate-y-0.5 flex items-center gap-1.5">
-            Join
+            Create activity
             <ArrowUpRight className="w-3.5 h-3.5" />
           </button>
         </div>

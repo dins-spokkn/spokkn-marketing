@@ -39,7 +39,7 @@ const TypingText = () => {
 
 const Hero = () => {
   return (
-    <section className="pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden relative">
+    <section className="min-h-screen flex flex-col justify-center overflow-hidden relative py-20">
       {/* Scattered decorative dots */}
       <div className="absolute top-40 right-10 w-2 h-2 rounded-full bg-accent/30 hidden md:block" />
       <div className="absolute top-60 right-32 w-3 h-3 rounded-full bg-primary/20 hidden md:block" />
@@ -64,7 +64,7 @@ const Hero = () => {
             <div className="flex flex-col lg:flex-row lg:items-start gap-8 lg:gap-4">
               {/* Left - Headline */}
               <div className="flex-1 max-w-2xl">
-                <motion.div
+                {/* <motion.div
                   className="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-bold px-3 py-1.5 rounded-full mb-5 border border-accent/20"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -72,7 +72,7 @@ const Hero = () => {
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                   CREATE ACTIVITIES · JOIN SESSIONS
-                </motion.div>
+                </motion.div> */}
 
                 <motion.h1
                   className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground"
@@ -80,26 +80,26 @@ const Hero = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7 }}
                 >
-                  Create your activity{" "}
+                  Speak English like you mean it
                   <span className="inline-flex items-center gap-2">
-                    <ArrowUpRight className="w-6 h-6 md:w-8 md:h-8 text-accent" />
+                    <ArrowUpRight className="w-16 h-16  text-accent" />
                   </span>
-                  <br />
+                  {/* <br /> */}
                   <span className="text-gradient relative">
-                    Join
+                    Practice
                     <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 200 12" fill="none">
                       <path d="M2 8 Q 40 2, 80 8 Q 120 14, 160 6 Q 180 3, 198 7" stroke="hsl(var(--accent))" strokeWidth="2.5" strokeLinecap="round" fill="none" />
                     </svg>
-                  </span>{" "}Sessions.
+                  </span>{" "}with real people.
                 </motion.h1>
 
                 <motion.div
-                  className="mt-6 flex items-center gap-2 text-sm text-accent font-medium"
+                  className="mt-6 flex items-center gap-2 text-base md:text-lg text-muted-foreground font-medium"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3, duration: 0.5 }}
                 >
-                  <span>Choose from <strong className="text-foreground">5 activity types</strong> — Storytelling, Role Play, Improv, Debate & Topic of Discussion. Join sessions hosted by expert <strong className="text-foreground">Spokkn Hosts</strong>.</span>
+                  <span>No more awkward silences. Join live sessions with learners worldwide and speak confidently through <strong className="text-foreground">real conversations</strong>.</span>
                 </motion.div>
 
                 <motion.div
