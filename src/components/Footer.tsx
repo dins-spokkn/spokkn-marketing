@@ -10,12 +10,14 @@ const Footer = () => {
 
       <div className="container relative">
         {/* Big CTA before footer links */}
-        <div className="mb-16 pb-16 border-b border-primary-foreground/10">
-          <h3 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
-            Ready to Improve Your<br />
-            <span className="text-accent">Spoken English?</span>
-          </h3>
-          <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">
+        <div className="mb-16 pb-16 border-b border-primary-foreground/10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+          <div>
+            <h3 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+              Ready to Improve Your<br />
+              <span className="text-accent">Spoken English?</span>
+            </h3>
+          </div>
+          <div className="flex flex-col sm:flex-row items-start gap-4">
             <button className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-7 py-3.5 rounded-full transition-all hover:shadow-lg flex items-center gap-2">
               <Download className="w-4 h-4" />
               Download App
@@ -25,28 +27,12 @@ const Footer = () => {
               <ArrowUpRight className="w-4 h-4" />
             </button>
           </div>
-          {/* <div className="flex items-center gap-3">
-            <div className="h-10 px-4 bg-white/10 backdrop-blur-sm rounded-lg flex items-center gap-2 text-xs font-semibold hover:bg-white/20 transition-colors cursor-pointer">
-              <Smartphone className="w-4 h-4" />
-              <div className="text-left">
-                <div className="text-[8px] opacity-70">Download on</div>
-                <div>App Store</div>
-              </div>
-            </div>
-            <div className="h-10 px-4 bg-white/10 backdrop-blur-sm rounded-lg flex items-center gap-2 text-xs font-semibold hover:bg-white/20 transition-colors cursor-pointer">
-              <Smartphone className="w-4 h-4" />
-              <div className="text-left">
-                <div className="text-[8px] opacity-70">Get it on</div>
-                <div>Google Play</div>
-              </div>
-            </div>
-          </div> */}
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           {/* Logo */}
           <div className="col-span-2 md:col-span-1">
-            <SpokknLogo variant="light" />
+            <SpokknLogo variant="light" size="50" />
             <p className="text-sm text-primary-foreground/60 mt-3 max-w-xs">
               Practice English through real conversations with peers worldwide.
             </p>
@@ -116,6 +102,7 @@ const Footer = () => {
           <p className="text-xs text-primary-foreground/40">
             © 2026 Spokkn. All rights reserved.
           </p>
+          {/* <SpokknLogo variant="light" /> */}
         </div>
       </div>
     </footer>
