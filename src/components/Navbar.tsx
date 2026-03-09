@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Search, Menu, X, ArrowUpRight } from "lucide-react";
+import { Download, Menu, X, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import SpokknLogo from "./SpokknLogo";
 
@@ -23,38 +23,18 @@ const Navbar = () => {
     >
       <div className="container flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-1 shrink-0">
+        <a href="/" className="flex items-center gap-1 shrink-0">
           <SpokknLogo />
         </a>
 
-        {/* Center search - desktop */}
-        {/* <div className="hidden md:flex items-center bg-secondary rounded-full px-4 py-2 gap-2 w-full max-w-xs mx-6">
-          <Search className="w-4 h-4 text-muted-foreground" />
-          <input
-            type="text"
-            placeholder="Search"
-            className="bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none w-full"
-          />
-        </div> */}
-
         {/* Right side - desktop */}
-        <div className="hidden md:flex items-center gap-4">
-          <div className="flex -space-x-2">
-            {[0, 1, 2].map((i) => (
-              <div
-                key={i}
-                className="w-8 h-8 rounded-full bg-lavender border-2 border-card flex items-center justify-center text-xs font-semibold text-primary"
-              >
-                {String.fromCharCode(65 + i)}
-              </div>
-            ))}
-            <div className="flex items-center pl-3 text-sm font-medium text-muted-foreground">
-              Activities · Sessions
-            </div>
-          </div>
-          <button className="bg-gradient-brand text-primary-foreground text-sm font-semibold px-5 py-2.5 rounded-full hover:shadow-card transition-all hover:-translate-y-0.5 flex items-center gap-1.5">
-            Create activity
-            <ArrowUpRight className="w-3.5 h-3.5" />
+        <div className="hidden md:flex items-center gap-3">
+          <button className="text-sm font-medium text-foreground hover:text-primary transition-colors px-4 py-2">
+            Sign In
+          </button>
+          <button className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-semibold px-5 py-2.5 rounded-full transition-all hover:shadow-lg flex items-center gap-1.5">
+            <Download className="w-3.5 h-3.5" />
+            Download App
           </button>
         </div>
 
@@ -74,29 +54,16 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-card border-t border-border overflow-hidden"
+            className="md:hidden bg-card/95 backdrop-blur-xl border-t border-border overflow-hidden"
           >
-            <div className="container py-4 flex flex-col gap-4">
-              <div className="flex items-center bg-secondary rounded-full px-4 py-2.5 gap-2">
-                <Search className="w-4 h-4 text-muted-foreground" />
-                <input
-                  type="text"
-                  placeholder="Search"
-                  className="bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none w-full"
-                />
-              </div>
-              <div className="flex flex-col gap-3">
-                <a href="#" className="text-sm font-medium text-foreground py-1">Activities</a>
-                <a href="#" className="text-sm font-medium text-foreground py-1">Sessions</a>
-                <a href="#" className="text-sm font-medium text-foreground py-1">Become a Host</a>
-              </div>
-              <div className="flex items-center gap-3 pt-2 border-t border-border">
-                <button className="text-sm font-medium text-foreground">Log In</button>
-                <button className="bg-gradient-brand text-primary-foreground text-sm font-semibold px-5 py-2.5 rounded-full flex items-center gap-1.5">
-                  Join
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </button>
-              </div>
+            <div className="container py-4 flex flex-col gap-3">
+              <button className="text-sm font-medium text-foreground text-left py-2">
+                Sign In
+              </button>
+              <button className="bg-primary text-primary-foreground text-sm font-semibold px-5 py-2.5 rounded-full flex items-center gap-1.5 justify-center">
+                <Download className="w-3.5 h-3.5" />
+                Download App
+              </button>
             </div>
           </motion.div>
         )}

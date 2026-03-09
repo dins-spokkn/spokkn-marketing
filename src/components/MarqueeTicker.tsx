@@ -1,23 +1,23 @@
 import { motion } from "framer-motion";
 
 const items = [
-  "Create your activity",
+  "Practice with Peers",
   "✦",
-  "Join live sessions",
+  "Join Live Sessions",
   "✦",
-  "5 activity types",
+  "5 Activity Types",
   "✦",
-  "Verified hosts",
+  "Real Conversations",
   "✦",
   "Storytelling · Role Play · Improv · Debate · Discussion",
   "✦",
-  "Become a host",
+  "Build Confidence",
   "✦",
 ];
 
 const MarqueeTicker = () => {
   return (
-    <div className="py-4 md:py-5 bg-foreground text-primary-foreground overflow-hidden select-none">
+    <div className="py-4 md:py-5 bg-primary text-primary-foreground overflow-hidden select-none">
       <div className="flex whitespace-nowrap">
         {[0, 1].map((loop) => (
           <motion.div
@@ -25,14 +25,14 @@ const MarqueeTicker = () => {
             className="flex items-center gap-6 md:gap-10 shrink-0"
             animate={{ x: ["0%", "-100%"] }}
             transition={{
-              x: { repeat: Infinity, repeatType: "loop", duration: 20, ease: "linear" },
+              x: { repeat: Infinity, repeatType: "loop", duration: 25, ease: "linear" },
             }}
           >
             {items.map((item, i) => (
               <span
                 key={`${loop}-${i}`}
                 className={`text-sm md:text-base font-semibold tracking-wide uppercase ${
-                  item === "✦" ? "text-accent text-lg" : "text-primary-foreground/80"
+                  item === "✦" ? "text-accent text-lg" : "text-primary-foreground/90"
                 } px-2`}
               >
                 {item}

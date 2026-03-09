@@ -11,27 +11,27 @@ const shows = [
     title: "Storytelling Session",
     description: "Share and listen to personal stories. Improve narrative skills and vocabulary in a relaxed setting.",
     author: "Host Priya",
-    tag: "Free",
+    tag: "Live",
     tagColor: "bg-accent text-accent-foreground",
-    bg: "bg-card",
+    bg: "bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/10",
   },
   {
     image: show2,
     title: "Debate Arena",
     description: "Pick a side and argue your case. Build critical thinking and persuasion skills in English.",
     author: "Host Arjun",
-    tag: "₹49",
+    tag: "Popular",
     tagColor: "bg-primary text-primary-foreground",
-    bg: "bg-lavender",
+    bg: "bg-gradient-to-br from-accent/5 to-primary/5 border border-accent/10",
   },
   {
     image: show3,
     title: "Improv Workshop",
     description: "Think on your feet with spontaneous scenarios. No scripts — just real-time English practice.",
     author: "Host Meera",
-    tag: "Popular",
+    tag: "New",
     tagColor: "bg-foreground text-primary-foreground",
-    bg: "bg-card",
+    bg: "bg-gradient-to-br from-primary/5 to-transparent border border-primary/10",
   },
 ];
 
@@ -40,8 +40,7 @@ const ShowsCarousel = () => {
 
   return (
     <section className="py-16 md:py-24 relative">
-      {/* Decorative circle */}
-      <div className="absolute -top-20 -left-20 w-40 h-40 rounded-full border border-border/50 hidden lg:block" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(79,195,247,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(79,195,247,0.02)_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none" />
       
       <div className="container">
         {/* Header */}
@@ -60,13 +59,13 @@ const ShowsCarousel = () => {
         {/* Section title */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
-            <p className="text-sm text-muted-foreground font-medium mb-1">02</p>
+            <p className="text-sm text-accent font-semibold mb-1">LIVE SESSIONS</p>
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-foreground leading-tight">
-              Upcoming sessions<br />from verified hosts
+              Join Upcoming Sessions<br />with Peers Worldwide
             </h3>
           </div>
           <p className="text-sm text-muted-foreground max-w-sm">
-            Hosts create sessions based on activities. Browse, claim or buy a spot, and join when the session goes live.
+            Browse live sessions, join conversations, and practice English through structured activities.
           </p>
         </div>
 

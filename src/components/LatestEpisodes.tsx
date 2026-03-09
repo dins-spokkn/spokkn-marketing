@@ -25,16 +25,16 @@ const LatestEpisodes = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-card">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-primary/5 to-transparent">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="text-sm text-muted-foreground font-medium mb-1">03</p>
+          <p className="text-sm text-accent font-semibold mb-1">ACTIVITY TYPES</p>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-foreground leading-tight mb-10">
-            Explore the 5<br />activity types
+            Explore the 5<br />Activity Types
           </h2>
         </motion.div>
 
@@ -44,7 +44,7 @@ const LatestEpisodes = () => {
             {tags.map((tag) => (
               <button
                 key={tag}
-                className="flex items-center gap-2 border border-border rounded-full px-4 py-2.5 text-sm font-medium text-foreground hover:bg-secondary transition-colors group"
+                className="flex items-center gap-2 border border-primary/20 bg-primary/5 rounded-full px-4 py-2.5 text-sm font-medium text-foreground hover:bg-primary/10 hover:border-primary/30 transition-colors group"
               >
                 <span className="w-2 h-2 rounded-full bg-primary" />
                 {tag}
@@ -92,11 +92,11 @@ const LatestEpisodes = () => {
                   transition={{ delay: i * 0.08, duration: 0.4 }}
                   viewport={{ once: true }}
                 >
-                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-transparent group-hover:ring-primary transition-all shadow-soft">
+                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-2 ring-primary/20 group-hover:ring-primary transition-all shadow-lg">
                     <img
                       src={ep.img}
                       alt={ep.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>
                   <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors text-center">

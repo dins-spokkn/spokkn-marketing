@@ -1,28 +1,45 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Download, Smartphone, Linkedin, Instagram, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 import SpokknLogo from "./SpokknLogo";
 
 const Footer = () => {
   return (
     <footer className="bg-foreground text-primary-foreground py-16 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute top-10 right-10 w-64 h-64 rounded-full border border-primary-foreground/5 hidden lg:block" />
-      <div className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full border border-primary-foreground/5 hidden lg:block" />
+      {/* Tech grid background */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px]" />
 
       <div className="container relative">
         {/* Big CTA before footer links */}
         <div className="mb-16 pb-16 border-b border-primary-foreground/10">
           <h3 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
-            Ready to start<br />
-            <span className="text-accent">speaking</span>?
+            Ready to Improve Your<br />
+            <span className="text-accent">Spoken English?</span>
           </h3>
-          <div className="flex flex-col sm:flex-row items-start gap-4">
-            <button className="bg-accent text-accent-foreground font-semibold px-7 py-3.5 rounded-full hover:shadow-card-hover transition-all hover:-translate-y-0.5 flex items-center gap-2 group">
-              Create Your First Activity
-              <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform" />
+          <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">
+            <button className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-7 py-3.5 rounded-full transition-all hover:shadow-lg flex items-center gap-2">
+              <Download className="w-4 h-4" />
+              Download App
             </button>
-            <p className="text-sm text-primary-foreground/50 max-w-xs mt-2 sm:mt-0 sm:pt-2">
-              Create activities, join sessions, and practice English with real people worldwide.
-            </p>
+            <button className="border-2 border-accent text-accent font-semibold px-7 py-3.5 rounded-full hover:bg-accent/10 transition-all flex items-center gap-2">
+              Sign Up on Web
+              <ArrowUpRight className="w-4 h-4" />
+            </button>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="h-10 px-4 bg-white/10 backdrop-blur-sm rounded-lg flex items-center gap-2 text-xs font-semibold hover:bg-white/20 transition-colors cursor-pointer">
+              <Smartphone className="w-4 h-4" />
+              <div className="text-left">
+                <div className="text-[8px] opacity-70">Download on</div>
+                <div>App Store</div>
+              </div>
+            </div>
+            <div className="h-10 px-4 bg-white/10 backdrop-blur-sm rounded-lg flex items-center gap-2 text-xs font-semibold hover:bg-white/20 transition-colors cursor-pointer">
+              <Smartphone className="w-4 h-4" />
+              <div className="text-left">
+                <div className="text-[8px] opacity-70">Get it on</div>
+                <div>Google Play</div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -31,21 +48,37 @@ const Footer = () => {
           <div className="col-span-2 md:col-span-1">
             <SpokknLogo variant="light" />
             <p className="text-sm text-primary-foreground/60 mt-3 max-w-xs">
-              Create your activity. Join sessions. Practice English with real conversations.
+              Practice English through real conversations with peers worldwide.
             </p>
+            <div className="flex items-center gap-3 mt-4">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center">
+                <Linkedin className="w-4 h-4" />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center">
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a href="https://wa.me" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center">
+                <MessageCircle className="w-4 h-4" />
+              </a>
+            </div>
           </div>
 
-          {/* Product */}
+          {/* Download */}
           <div>
-            <h4 className="text-sm font-semibold mb-4 text-primary-foreground/80">Product</h4>
+            <h4 className="text-sm font-semibold mb-4 text-primary-foreground/80">Download</h4>
             <ul className="flex flex-col gap-2.5">
-              {["Activities", "Sessions", "Become a Host", "Pricing"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-sm text-primary-foreground/50 hover:text-primary-foreground transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="#" className="text-sm text-primary-foreground/50 hover:text-primary-foreground transition-colors">App Store</a>
+              </li>
+              <li>
+                <a href="#" className="text-sm text-primary-foreground/50 hover:text-primary-foreground transition-colors">Google Play</a>
+              </li>
+              <li>
+                <a href="https://spokkn.com" target="_blank" rel="noopener noreferrer" className="text-sm text-primary-foreground/50 hover:text-primary-foreground transition-colors flex items-center gap-1">
+                  Web App
+                  <ArrowUpRight className="w-3 h-3" />
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -53,28 +86,28 @@ const Footer = () => {
           <div>
             <h4 className="text-sm font-semibold mb-4 text-primary-foreground/80">Company</h4>
             <ul className="flex flex-col gap-2.5">
-              {["About", "Blog", "Careers", "Contact"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-sm text-primary-foreground/50 hover:text-primary-foreground transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="#" className="text-sm text-primary-foreground/50 hover:text-primary-foreground transition-colors">About</a>
+              </li>
+              <li>
+                <a href="#" className="text-sm text-primary-foreground/50 hover:text-primary-foreground transition-colors">Contact</a>
+              </li>
             </ul>
           </div>
 
-          {/* Social */}
+          {/* Legal */}
           <div>
-            <h4 className="text-sm font-semibold mb-4 text-primary-foreground/80">Social</h4>
+            <h4 className="text-sm font-semibold mb-4 text-primary-foreground/80">Legal</h4>
             <ul className="flex flex-col gap-2.5">
-              {["Twitter", "LinkedIn", "Instagram", "YouTube"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-sm text-primary-foreground/50 hover:text-primary-foreground transition-colors flex items-center gap-1">
-                    {item}
-                    <ArrowUpRight className="w-3 h-3" />
-                  </a>
-                </li>
-              ))}
+              <li>
+                <Link to="/privacy-policy" className="text-sm text-primary-foreground/50 hover:text-primary-foreground transition-colors">Privacy Policy</Link>
+              </li>
+              <li>
+                <Link to="/terms-and-conditions" className="text-sm text-primary-foreground/50 hover:text-primary-foreground transition-colors">Terms & Conditions</Link>
+              </li>
+              <li>
+                <Link to="/refund-policy" className="text-sm text-primary-foreground/50 hover:text-primary-foreground transition-colors">Refund Policy</Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -83,10 +116,6 @@ const Footer = () => {
           <p className="text-xs text-primary-foreground/40">
             © 2026 Spokkn. All rights reserved.
           </p>
-          <div className="flex items-center gap-4">
-            <a href="#" className="text-xs text-primary-foreground/40 hover:text-primary-foreground/60 transition-colors">Privacy</a>
-            <a href="#" className="text-xs text-primary-foreground/40 hover:text-primary-foreground/60 transition-colors">Terms</a>
-          </div>
         </div>
       </div>
     </footer>

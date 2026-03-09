@@ -12,11 +12,8 @@ const topics = [
 
 const BrowseByTopic = () => {
   return (
-    <section className="py-16 md:py-24 relative overflow-hidden">
-      {/* Decorative cross-hatch pattern */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.02]" style={{
-        backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 35px, currentColor 35px, currentColor 36px)`,
-      }} />
+    <section className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-b from-transparent via-accent/5 to-transparent">
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(79,195,247,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(79,195,247,0.03)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none" />
 
       <div className="container">
         <motion.h2
@@ -24,22 +21,19 @@ const BrowseByTopic = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.5 }}
         >
-          Browse by<br />activity type
-          {/* Decorative star */}
-          <span className="absolute -top-4 -right-2 md:right-20 text-accent text-2xl md:text-3xl animate-pulse">✦</span>
+          Browse by<br />Activity Type
         </motion.h2>
 
         <div className="relative">
           {/* Floating image */}
           <motion.div
-            className="hidden md:block absolute right-0 top-8 w-56 h-56 rounded-2xl overflow-hidden shadow-card z-10 -rotate-3"
+            className="hidden md:block absolute right-0 top-8 w-56 h-56 rounded-2xl overflow-hidden shadow-xl z-10 border-4 border-primary/10"
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            whileHover={{ rotate: 0, scale: 1.05 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
           >
             <img src={topicImg} alt="Speaking practice" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent" />
@@ -51,7 +45,7 @@ const BrowseByTopic = () => {
             {topics.map((topic, i) => (
               <motion.div
                 key={topic.name}
-                className="flex items-center gap-4 md:gap-6 py-5 md:py-6 border-b border-border group cursor-pointer hover:bg-secondary/50 transition-all px-2 md:px-4 rounded-xl"
+                className="flex items-center gap-4 md:gap-6 py-5 md:py-6 border-b border-border group cursor-pointer hover:bg-primary/5 transition-all px-2 md:px-4 rounded-xl"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
