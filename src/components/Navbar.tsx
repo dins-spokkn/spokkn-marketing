@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Download, Menu, X, ArrowUpRight } from "lucide-react";
+import { Download, Menu, X, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import SpokknLogo from "./SpokknLogo";
 
@@ -32,9 +32,11 @@ const Navbar = () => {
           <button className="text-sm font-medium text-foreground hover:text-primary transition-colors px-4 py-2">
             Sign In
           </button>
-          <button className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-semibold px-5 py-2.5 rounded-full transition-all hover:shadow-lg flex items-center gap-1.5">
-            <Download className="w-3.5 h-3.5" />
+          <button className="inline-flex items-center gap-2 px-4 py-2 bg-accent text-white font-semibold rounded-full shadow-lg hover:bg-accent/90 transition-colors group">
             Download App
+            <div className="bg-white rounded-full text-accent p-1.5 transition-transform group-hover:translate-x-1">
+              <Download className="w-4 h-4" />
+            </div>
           </button>
         </div>
 
@@ -60,9 +62,11 @@ const Navbar = () => {
               <button className="text-sm font-medium text-foreground text-left py-2">
                 Sign In
               </button>
-              <button className="bg-primary text-primary-foreground text-sm font-semibold px-5 py-2.5 rounded-full flex items-center gap-1.5 justify-center">
-                <Download className="w-3.5 h-3.5" />
+              <button className="inline-flex items-center gap-2 px-4 py-2 bg-accent text-white font-semibold rounded-full shadow-lg hover:bg-accent/90 transition-colors group justify-center">
                 Download App
+                <div className="bg-white rounded-full text-accent p-1.5 transition-transform group-hover:translate-x-1">
+                  <Download className="w-4 h-4" />
+                </div>
               </button>
             </div>
           </motion.div>

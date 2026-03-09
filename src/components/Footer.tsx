@@ -25,7 +25,7 @@ const Footer = () => {
               <ArrowUpRight className="w-4 h-4" />
             </button>
           </div>
-          <div className="flex items-center gap-3">
+          {/* <div className="flex items-center gap-3">
             <div className="h-10 px-4 bg-white/10 backdrop-blur-sm rounded-lg flex items-center gap-2 text-xs font-semibold hover:bg-white/20 transition-colors cursor-pointer">
               <Smartphone className="w-4 h-4" />
               <div className="text-left">
@@ -40,7 +40,7 @@ const Footer = () => {
                 <div>Google Play</div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">

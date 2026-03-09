@@ -11,13 +11,13 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <div className="flex-1 max-w-2xl">
             <motion.h1
-              className="text-5xl sm:text-6xl md:text-7xl font-semibold leading-[1.05] tracking-tight text-foreground"
+              className="text-5xl sm:text-6xl font-semibold leading-[1.05] tracking-tight text-foreground"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              Practice with Peers —{" "}
-              <span className="text-gradient relative">
+              Practice with Peers{" "}
+              <span className="text-accent relative">
                 One Activity at a Time
               </span>
             </motion.h1>
@@ -37,10 +37,13 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.4 }}
             >
-              <button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-full transition-all hover:shadow-lg flex items-center gap-2">
-                <Download className="w-5 h-5" />
-                Download App
-              </button>
+                     <button className="inline-flex items-center gap-2 px-4 py-2 bg-accent text-white font-semibold rounded-full shadow-lg hover:bg-accent/90 transition-colors group">
+            Download App
+            <div className="bg-white rounded-full text-accent p-1.5 transition-transform group-hover:translate-x-1">
+              <Download className="w-4 h-4" />
+            </div>
+          </button>
+     
             </motion.div>
           </div>
 

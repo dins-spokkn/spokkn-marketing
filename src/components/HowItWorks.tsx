@@ -5,18 +5,23 @@ const HowItWorks = () => {
   const steps = [
     {
       number: "01",
-      title: "Choose Activity",
-      description: "Browse storytelling, debates, role-play, improv, or discussions",
+      title: "Book Session",
+      description: "Schedule your speaking practice session at your preferred time",
     },
     {
       number: "02",
-      title: "Join Live Session",
-      description: "Connect with peers in real-time speaking practice",
+      title: "Prepare Session",
+      description: "Get ready with materials and topics for your upcoming session",
     },
     {
       number: "03",
-      title: "Build Confidence",
-      description: "Improve communication skills one conversation at a time",
+      title: "Join Session",
+      description: "Connect with peers in real-time speaking practice",
+    },
+    {
+      number: "04",
+      title: "Review & Improve",
+      description: "Go through recorded session and transcript to analyze and improve your performance",
     },
   ];
 
@@ -25,6 +30,15 @@ const HowItWorks = () => {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(79,195,247,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(79,195,247,0.03)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none" />
       
       <div className="container relative">
+        <motion.h1
+          className="text-5xl sm:text-6xl font-semibold leading-[1.05] tracking-tight text-foreground text-center mb-8"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          Practice with Peers
+        </motion.h1>
+
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -32,8 +46,8 @@ const HowItWorks = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4">
-            Start Speaking in 3 Simple Steps
+          <h2 className="text-3xl font-semibold text-foreground mb-4">
+            Start Speaking in 4 Simple Steps
           </h2>
         </motion.div>
 
@@ -65,18 +79,6 @@ const HowItWorks = () => {
           ))}
         </div>
 
-        <motion.div
-          className="text-center mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-6 py-3">
-            <CheckCircle2 className="w-5 h-5 text-accent" />
-            <span className="text-sm font-semibold text-foreground">No credit card required</span>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

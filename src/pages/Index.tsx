@@ -1,13 +1,13 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import GridCollage from "@/components/GridCollage";
+import FeaturesGrid from "@/components/FeaturesGrid";
 import MarqueeTicker from "@/components/MarqueeTicker";
 import PlatformOverview from "@/components/PlatformOverview";
 import HowItWorks from "@/components/HowItWorks";
 import Activities from "@/components/Activities";
-import ShowsCarousel from "@/components/ShowsCarousel";
-import LatestEpisodes from "@/components/LatestEpisodes";
-import BrowseByTopic from "@/components/BrowseByTopic";
+import SessionsCarousel from "@/components/SessionsCarousel";
+import ActivityTypes from "@/components/ActivityTypes";
+import ActivityList from "@/components/ActivityList";
 import AppDownload from "@/components/AppDownload";
 import Footer from "@/components/Footer";
 
@@ -16,14 +16,14 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <Hero />
-      <GridCollage />
+      <FeaturesGrid />
       <MarqueeTicker />
-      <PlatformOverview />
+      {/* <PlatformOverview /> */}
       <HowItWorks />
-      <ShowsCarousel />
-      <LatestEpisodes />
-      <BrowseByTopic />
-      <AppDownload />
+      <SessionsCarousel />
+      <ActivityTypes />
+      <ActivityList />
+      {/* <AppDownload /> */}
       <Footer />
     </div>
   );

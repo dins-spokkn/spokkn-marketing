@@ -17,7 +17,7 @@ const items = [
 
 const MarqueeTicker = () => {
   return (
-    <div className="py-4 md:py-5 bg-primary text-primary-foreground overflow-hidden select-none">
+    <div className="py-4 md:py-5 bg-foreground text-primary-foreground overflow-hidden select-none">
       <div className="flex whitespace-nowrap">
         {[0, 1].map((loop) => (
           <motion.div
