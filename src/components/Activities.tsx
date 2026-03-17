@@ -41,7 +41,7 @@ const Activities = () => {
   ];
 
   return (
-    <section className="py-20 md:py-32 relative overflow-hidden">
+    <section className="py-20 md:py-32 relative overflow-hidden bg-white">
       <div className="container relative">
         <motion.div
           className="text-center mb-16"

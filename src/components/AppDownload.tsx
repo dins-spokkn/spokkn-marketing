@@ -1,11 +1,11 @@
 import { Download, Smartphone, QrCode } from "lucide-react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 const AppDownload = () => {
   return (
-    <section className="py-20 md:py-32 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 pointer-events-none" />
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(79,195,247,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(79,195,247,0.05)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+    <section className="py-20 md:py-32 relative overflow-hidden bg-white">
+      <div className="absolute inset-0 pointer-events-none" />
       
       <div className="container relative">
         <div className="max-w-4xl mx-auto text-center">
@@ -29,14 +29,14 @@ const AppDownload = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-              <button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-full transition-all hover:shadow-xl flex items-center gap-3 group">
+              <Button size="lg">
                 <Download className="w-5 h-5" />
-                <span>Download App</span>
-              </button>
-              <button className="border-2 border-primary text-primary font-semibold px-8 py-4 rounded-full hover:bg-primary/5 transition-all flex items-center gap-3">
+                Download App
+              </Button>
+              <Button size="lg" variant="outline">
                 <QrCode className="w-5 h-5" />
-                <span>Scan QR Code</span>
-              </button>
+                Scan QR Code
+              </Button>
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-4">

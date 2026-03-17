@@ -14,7 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Satoshi', 'system-ui', 'sans-serif'],
+        sans: ['Focus', 'system-ui', 'sans-serif'],
+        btn: ['Public', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -68,11 +69,12 @@ export default {
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 4px)",
-        sm: "calc(var(--radius) - 8px)",
-        xl: "calc(var(--radius) + 4px)",
-        "2xl": "calc(var(--radius) + 8px)",
+        xs: "0.25rem",
+        // lg: "var(--radius)",
+        // md: "calc(var(--radius) - 4px)",
+        // sm: "calc(var(--radius) - 8px)",
+        // xl: "calc(var(--radius) + 4px)",
+        // "2xl": "calc(var(--radius) + 8px)",
       },
       keyframes: {
         "accordion-down": {

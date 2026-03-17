@@ -21,8 +21,8 @@ const PlatformOverview = () => {
   ];
 
   return (
-    <section className="py-20 md:py-32 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent pointer-events-none" />
+    <section className="py-20 md:py-32 relative overflow-hidden bg-white">
+      <div className="absolute inset-0 pointer-events-none" />
       
       <div className="container relative">
         <motion.div

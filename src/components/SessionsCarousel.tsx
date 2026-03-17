@@ -1,6 +1,7 @@
 import { ArrowUpRight, Clock, Users, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
 
 interface Session {
   id: string;
@@ -57,21 +58,19 @@ const SessionsCarousel = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 relative bg-background">
+    <section className="py-16 md:py-24 relative bg-white">
       <div className="absolute inset-0 pointer-events-none" />
       
       <div className="container">
         {/* Header */}
         <div className="flex items-center justify-between mb-10">
           <div className="flex items-center gap-4">
-            <button className="flex items-center gap-2 border border-border rounded-full px-4 py-2 text-sm font-medium text-foreground hover:bg-secondary transition-colors">
+            <Button variant="outline" size="sm">
               POPULAR <span className="text-xs">↓</span>
-            </button>
+            </Button>
             <h2 className="text-xl md:text-2xl font-bold text-foreground">Sessions</h2>
           </div>
-          <button className="flex items-center gap-2 border border-border rounded-full px-4 py-2 text-sm font-medium text-foreground hover:bg-secondary transition-colors">
-            FEATURED
-          </button>
+          <Button variant="outline" size="sm">FEATURED</Button>
         </div>
 
         {/* Section title */}
@@ -89,18 +88,22 @@ const SessionsCarousel = () => {
 
         {/* Cards Carousel */}
         <div className="relative">
-          <button
+          <Button
             onClick={() => scroll('left')}
-            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 items-center justify-center rounded-full bg-white border border-border shadow-lg hover:bg-secondary transition-colors"
+            variant="outline"
+            size="icon"
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 shadow-lg"
           >
             <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={() => scroll('right')}
-            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 items-center justify-center rounded-full bg-white border border-border shadow-lg hover:bg-secondary transition-colors"
+            variant="outline"
+            size="icon"
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 shadow-lg"
           >
             <ChevronRight className="w-5 h-5" />
-          </button>
+          </Button>
 
           <div
             ref={scrollRef}
@@ -169,10 +172,10 @@ const SessionsCarousel = () => {
                             <p className="text-xs text-muted-foreground mb-0.5">Price</p>
                             <p className="text-2xl font-bold text-primary">₹{session.price}</p>
                           </div>
-                          <button className="px-6 py-3 bg-primary text-white rounded-full font-semibold text-sm hover:bg-primary/90 transition-all flex items-center gap-2 group-hover:gap-3 group-hover:pr-5">
+                          <Button size="sm" className="group-hover:gap-3 group-hover:pr-5">
                             Book Now
                             <ArrowUpRight className="w-4 h-4" />
-                          </button>
+                          </Button>
                         </div>
                       </div>
                     </motion.div>

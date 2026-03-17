@@ -39,7 +39,7 @@ const TypingText = () => {
 
 const FeaturesGrid = () => {
   return (
-    <section className="py-20 overflow-hidden relative bg-background">
+    <section className="py-20 overflow-hidden relative bg-white">
       <div className="absolute inset-0 pointer-events-none" />
       
       <div className="container">
@@ -49,7 +49,7 @@ const FeaturesGrid = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
-          <div className="bg-gradient-to-br from-primary to-accent text-primary-foreground rounded-2xl p-6 md:p-8 flex flex-col justify-between aspect-square sm:aspect-auto relative overflow-hidden min-h-[200px]">
+          <div className="bg-gradient-to-br from-primary to-accent text-primary-foreground rounded-md p-6 md:p-8 flex flex-col justify-between aspect-square sm:aspect-auto relative overflow-hidden min-h-[400px]">
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:20px_20px]" />
             <div className="relative z-10">
               <Sparkles className="w-12 h-12 md:w-14 md:h-14 text-white/90 mb-4" />
@@ -58,7 +58,7 @@ const FeaturesGrid = () => {
             </div>
           </div>
 
-          <div className="bg-accent/10 border border-accent/20 rounded-2xl p-6 md:p-8 flex flex-col justify-between aspect-square sm:aspect-auto relative min-h-[200px]">
+          <div className="bg-accent/10 border border-accent/20 rounded-md p-6 md:p-8 flex flex-col justify-between aspect-square sm:aspect-auto relative min-h-[400px]">
             <div className="relative z-10">
               <Calendar className="w-12 h-12 md:w-14 md:h-14 text-accent mb-4" />
               <h3 className="text-lg md:text-xl font-bold text-foreground mb-2">Join Sessions</h3>
@@ -66,7 +66,7 @@ const FeaturesGrid = () => {
             </div>
           </div>
 
-          <div className="bg-primary/10 border border-primary/20 rounded-2xl p-6 md:p-8 flex flex-col justify-between aspect-square sm:aspect-auto relative min-h-[200px]">
+          <div className="bg-primary/10 border border-primary/20 rounded-md p-6 md:p-8 flex flex-col justify-between aspect-square sm:aspect-auto relative min-h-[400px]">
             <div className="relative z-10">
               <Mic className="w-12 h-12 md:w-14 md:h-14 text-primary mb-4" />
               <h3 className="text-lg md:text-xl font-bold text-foreground mb-2">Host Session</h3>
@@ -74,7 +74,7 @@ const FeaturesGrid = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-accent/10 to-primary/10 border border-accent/20 rounded-2xl p-6 md:p-8 flex flex-col justify-between aspect-square sm:aspect-auto relative min-h-[200px]">
+          <div className="bg-gradient-to-br from-accent/10 to-primary/10 border border-accent/20 rounded-md p-6 md:p-8 flex flex-col justify-between aspect-square sm:aspect-auto relative min-h-[400px]">
             <div className="relative z-10">
               <Video className="w-12 h-12 md:w-14 md:h-14 text-accent mb-4" />
               <h3 className="text-lg md:text-xl font-bold text-foreground mb-2">Recordings</h3>
@@ -82,7 +82,7 @@ const FeaturesGrid = () => {
             </div>
           </div>
 
-          {/* <div className="hidden sm:flex bg-primary/5 border border-primary/10 rounded-2xl items-end justify-center pb-6 pt-4 gap-1">
+          {/* <div className="hidden sm:flex bg-primary/5 border border-primary/10 rounded-md items-end justify-center pb-6 pt-4 gap-1">
             {[40, 60, 30, 70, 45, 55, 35].map((h, i) => (
               <motion.div
                 key={i}
@@ -94,7 +94,7 @@ const FeaturesGrid = () => {
             ))}
           </div>
 
-          <div className="hidden sm:flex bg-gradient-to-br from-accent/10 to-primary/10 border border-accent/20 rounded-2xl items-center justify-center col-span-2 gap-4 px-6">
+          <div className="hidden sm:flex bg-gradient-to-br from-accent/10 to-primary/10 border border-accent/20 rounded-md items-center justify-center col-span-2 gap-4 px-6">
             <div className="flex -space-x-3">
               {["🧑💼", "👩🎓", "🧑🏫", "👨💻", "👩🔬", "🧑🎨"].map((emoji, i) => (
                 <div

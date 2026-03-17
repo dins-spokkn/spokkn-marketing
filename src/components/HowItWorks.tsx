@@ -26,8 +26,8 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-gradient-to-b from-transparent via-primary/5 to-transparent relative overflow-hidden">
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(79,195,247,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(79,195,247,0.03)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none" />
+    <section className="py-20 md:py-32 relative overflow-hidden bg-white">
+      <div className="absolute inset-0 pointer-events-none" />
       
       <div className="container relative">
         <motion.h1

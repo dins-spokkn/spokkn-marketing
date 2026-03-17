@@ -23,7 +23,7 @@ const ActivityList = () => {
     setMousePos({ x: e.clientX, y: e.clientY });
   };
   return (
-    <section className="py-16 md:py-24 relative overflow-hidden bg-background" onMouseMove={handleMouseMove}>
+    <section className="py-16 md:py-24 relative overflow-hidden bg-white" onMouseMove={handleMouseMove}>
       <div className="absolute inset-0 pointer-events-none" />
 
       <div className="container">

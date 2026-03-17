@@ -1,6 +1,7 @@
 import { ArrowUpRight, Download, Smartphone, Linkedin, Instagram, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import SpokknLogo from "./SpokknLogo";
+import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   return (
@@ -18,14 +19,14 @@ const Footer = () => {
             </h3>
           </div>
           <div className="flex flex-col sm:flex-row items-start gap-4">
-            <button className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-7 py-3.5 rounded-full transition-all hover:shadow-lg flex items-center gap-2">
+            <Button>
               <Download className="w-4 h-4" />
               Download App
-            </button>
-            <button className="border-2 border-accent text-accent font-semibold px-7 py-3.5 rounded-full hover:bg-accent/10 transition-all flex items-center gap-2">
+            </Button>
+            <Button variant="outline" className="border-accent text-accent hover:bg-accent/10">
               Sign Up on Web
               <ArrowUpRight className="w-4 h-4" />
-            </button>
+            </Button>
           </div>
         </div>
 

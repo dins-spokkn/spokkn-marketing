@@ -1,11 +1,11 @@
 import { Download } from "lucide-react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
-    <section className="h-screen flex items-center overflow-hidden relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(79,195,247,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(79,195,247,0.03)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none" />
+    <section className="min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)] flex items-center overflow-hidden relative bg-white">
+      <div className="absolute inset-0 pointer-events-none" />
 
       <div className="container">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
@@ -17,7 +17,7 @@ const Hero = () => {
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
               Practice with Peers{" "}
-              <span className="text-accent relative">
+              <span className="text-primary relative">
                 One Activity at a Time
               </span>
             </motion.h1>
@@ -37,12 +37,10 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.4 }}
             >
-                     <button className="inline-flex items-center gap-2 px-4 py-2 bg-accent text-white font-semibold rounded-full shadow-lg hover:bg-accent/90 transition-colors group">
-            Download App
-            <div className="bg-white rounded-full text-accent p-1.5 transition-transform group-hover:translate-x-1">
-              <Download className="w-4 h-4" />
-            </div>
-          </button>
+              <Button size="lg">
+                Download App
+                  <Download className="w-4 h-4" />
+              </Button>
      
             </motion.div>
           </div>
