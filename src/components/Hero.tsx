@@ -51,14 +51,36 @@ const Hero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.5 }}
           >
-            <div className="relative w-[280px] h-[570px] bg-foreground rounded-[3rem] p-3 shadow-2xl">
+            {/* <div className="relative w-[280px] h-[570px] bg-foreground rounded-[3rem] p-3 shadow-2xl">
               <div className="w-full h-full bg-gradient-to-br from-primary to-accent rounded-[2.5rem] overflow-hidden">
                 <div className="w-full h-full flex items-center justify-center text-white text-sm font-medium">
                   App Screenshot
                 </div>
               </div>
-            </div>
+            </div> */}
+
+
+  <div className="relative">
+  <div className="mockup-iphone-container absolute select-none overflow-hidden top-[1.5%] right-[2%] bottom-[1.6%] left-[2%] rounded-[10%] object-center bg-[#151515]" draggable="false">
+    <img 
+      src="/app.png" 
+      draggable="false" 
+      className="select-none pointer-events-none h-full w-full object-contain"
+      alt="App Screenshot"
+    />
+  </div>
+  <img 
+    src="/iphone-fullscreen-portrait.png" 
+    className="relative select-none h-[70vh] max-h-[600px] " 
+    draggable="false"
+    alt="iPhone Mockup"
+  />
+</div>
+
+            
           </motion.div>
+
+          
         </div>
       </div>
     </section>
