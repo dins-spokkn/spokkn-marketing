@@ -8,7 +8,7 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="top-0 left-0 right-0 z-50">
+    <header className="top-0 left-0 right-0 z-50 bg-transparent w-full">
       <div className="flex items-center justify-between h-16 md:h-20 px-2 sm:px-4">
         {/* Logo */}
         <a href="/" className="flex items-center gap-1 shrink-0">
@@ -17,10 +17,10 @@ const Navbar = () => {
 
         {/* Right side - desktop */}
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="outline" className="text-foreground">
+          <Button variant="outline" className="text-white border-white/30 bg-white/10 hover:bg-white/20">
             Sign In
           </Button>
-          <Button>
+          <Button variant="white">
             Download App
             {/* <div className="bg-white rounded-full text-accent p-1.5 transition-transform group-hover:translate-x-1"> */}
               <Download className="w-4 h-4" />
@@ -30,7 +30,7 @@ const Navbar = () => {
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden p-2 text-foreground"
+          className="md:hidden p-2 text-white"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

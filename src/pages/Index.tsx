@@ -9,12 +9,13 @@ import SessionsCarousel from "@/components/SessionsCarousel";
 import ActivityTypes from "@/components/ActivityTypes";
 import ActivityList from "@/components/ActivityList";
 import AppDownload from "@/components/AppDownload";
+import Testimonials from "@/components/Testimonials";
+import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
       <Hero />
       <FeaturesGrid />
       <MarqueeTicker />
@@ -23,6 +24,8 @@ const Index = () => {
       <SessionsCarousel />
       <ActivityTypes />
       <ActivityList />
+      <Testimonials />
+      <FAQ />
       {/* <AppDownload /> */}
       <Footer />
     </div>
