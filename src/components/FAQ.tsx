@@ -38,46 +38,59 @@ const faqs = [
 ];
 
 const FAQ = () => (
-  <section className="py-20 md:py-32 bg-white">
+  <section className="py-16 md:py-24 bg-background">
     <div className="container max-w-3xl">
+
+      {/* Heading — left-aligned, matches other sections */}
       <motion.div
-        className="text-center mb-16"
+        className="mb-10 md:mb-14"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <h2 className="text-5xl sm:text-6xl font-semibold leading-[1.05] tracking-tight text-foreground mb-4">
+        <p className="text-xs text-accent font-semibold uppercase tracking-wider mb-2">
+          FAQ
+        </p>
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-foreground leading-tight">
           Frequently Asked Questions
         </h2>
-        <p className="text-muted-foreground text-lg">
+        <p className="text-muted-foreground text-sm mt-2 max-w-sm">
           Everything you need to know before your first session.
         </p>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-      >
-        <Accordion type="single" collapsible className="space-y-3">
-          {faqs.map((faq, i) => (
+      {/* Accordion — items stagger individually */}
+      <Accordion type="single" collapsible className="space-y-2.5">
+        {faqs.map((faq, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.35, delay: i * 0.06 }}
+          >
             <AccordionItem
-              key={i}
               value={`item-${i}`}
-              className="border border-primary/10 rounded-md px-6 bg-primary/5"
+              className="border border-border rounded-2xl px-5 bg-card
+                hover:border-primary/30 transition-colors duration-200"
             >
-              <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline py-5">
+              <AccordionTrigger
+                className="text-left font-semibold text-foreground
+                  hover:no-underline py-5 text-sm md:text-base"
+              >
                 {faq.q}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground text-sm leading-relaxed pb-5">
+              <AccordionContent
+                className="text-muted-foreground text-sm leading-relaxed pb-5"
+              >
                 {faq.a}
               </AccordionContent>
             </AccordionItem>
-          ))}
-        </Accordion>
-      </motion.div>
+          </motion.div>
+        ))}
+      </Accordion>
+
     </div>
   </section>
 );

@@ -1,119 +1,138 @@
-import { Mic, MessageCircle, AudioLines, Sparkles, Calendar, Video } from "lucide-react";
+import { Mic, AudioLines, Sparkles, Calendar, Video, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-import heroPerson from "@/assets/hero-person.jpg";
 
-const TypingText = () => {
-  const phrases = ["Hello, how are you?", "I'd love to practice!", "Let's discuss this topic.", "Great point, I agree."];
-  const [index, setIndex] = useState(0);
-  const [displayed, setDisplayed] = useState("");
-  const [typing, setTyping] = useState(true);
+const features = [
+  {
+    icon: Sparkles,
+    title: "Generate & Save",
+    description: "Create custom activities tailored to your goals and save them for later.",
+    style: "gradient", // hero card
+  },
+  {
+    icon: Calendar,
+    title: "Join Sessions",
+    description: "Explore and join live peer sessions happening right now.",
+    style: "accent",
+  },
+  {
+    icon: Mic,
+    title: "Host a Session",
+    description: "Create and lead your own sessions for any topic or level.",
+    style: "primary",
+  },
+  {
+    icon: Video,
+    title: "Recordings",
+    description: "Review transcripts and recordings to track your improvement.",
+    style: "subtle",
+  },
+] as const;
 
-  useEffect(() => {
-    const phrase = phrases[index];
-    if (typing) {
-      if (displayed.length < phrase.length) {
-        const t = setTimeout(() => setDisplayed(phrase.slice(0, displayed.length + 1)), 60);
-        return () => clearTimeout(t);
-      } else {
-        const t = setTimeout(() => setTyping(false), 1500);
-        return () => clearTimeout(t);
-      }
-    } else {
-      if (displayed.length > 0) {
-        const t = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 30);
-        return () => clearTimeout(t);
-      } else {
-        setIndex((i) => (i + 1) % phrases.length);
-        setTyping(true);
-      }
-    }
-  }, [displayed, typing, index]);
+type FeatureStyle = (typeof features)[number]["style"];
 
-  return (
-    <span className="text-xs md:text-sm font-medium">
-      {displayed}<span className="animate-pulse text-accent">|</span>
-    </span>
-  );
+const cardClass: Record<FeatureStyle, string> = {
+  gradient: "bg-gradient-to-br from-primary to-accent text-primary-foreground",
+  accent:   "bg-accent/10 border border-accent/20",
+  primary:  "bg-primary/10 border border-primary/20",
+  subtle:   "bg-gradient-to-br from-accent/10 to-primary/10 border border-border",
 };
 
-const FeaturesGrid = () => {
-  return (
-    <section className="py-20 overflow-hidden relative bg-white">
-      <div className="absolute inset-0 pointer-events-none" />
-      
-      <div className="container">
-        <motion.div
-          className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-        >
-          <div className="bg-gradient-to-br from-primary to-accent text-primary-foreground rounded-md p-6 md:p-8 flex flex-col justify-between aspect-square sm:aspect-auto relative overflow-hidden min-h-[400px]">
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:20px_20px]" />
-            <div className="relative z-10">
-              <Sparkles className="w-12 h-12 md:w-14 md:h-14 text-white/90 mb-4" />
-              <h3 className="text-lg md:text-xl font-bold text-white mb-2">Generate & Save</h3>
-              <p className="text-xs md:text-sm text-white/80 leading-relaxed">Create custom activities and save for later</p>
-            </div>
-          </div>
+const iconClass: Record<FeatureStyle, string> = {
+  gradient: "text-white/90",
+  accent:   "text-accent",
+  primary:  "text-primary",
+  subtle:   "text-accent",
+};
 
-          <div className="bg-accent/10 border border-accent/20 rounded-md p-6 md:p-8 flex flex-col justify-between aspect-square sm:aspect-auto relative min-h-[400px]">
-            <div className="relative z-10">
-              <Calendar className="w-12 h-12 md:w-14 md:h-14 text-accent mb-4" />
-              <h3 className="text-lg md:text-xl font-bold text-foreground mb-2">Join Sessions</h3>
-              <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">Explore and join live sessions</p>
-            </div>
-          </div>
+const titleClass: Record<FeatureStyle, string> = {
+  gradient: "text-white",
+  accent:   "text-foreground",
+  primary:  "text-foreground",
+  subtle:   "text-foreground",
+};
 
-          <div className="bg-primary/10 border border-primary/20 rounded-md p-6 md:p-8 flex flex-col justify-between aspect-square sm:aspect-auto relative min-h-[400px]">
-            <div className="relative z-10">
-              <Mic className="w-12 h-12 md:w-14 md:h-14 text-primary mb-4" />
-              <h3 className="text-lg md:text-xl font-bold text-foreground mb-2">Host Session</h3>
-              <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">Create and lead your own sessions</p>
-            </div>
-          </div>
+const descClass: Record<FeatureStyle, string> = {
+  gradient: "text-white/75",
+  accent:   "text-muted-foreground",
+  primary:  "text-muted-foreground",
+  subtle:   "text-muted-foreground",
+};
 
-          <div className="bg-gradient-to-br from-accent/10 to-primary/10 border border-accent/20 rounded-md p-6 md:p-8 flex flex-col justify-between aspect-square sm:aspect-auto relative min-h-[400px]">
-            <div className="relative z-10">
-              <Video className="w-12 h-12 md:w-14 md:h-14 text-accent mb-4" />
-              <h3 className="text-lg md:text-xl font-bold text-foreground mb-2">Recordings</h3>
-              <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">Access transcripts and recordings</p>
-            </div>
-          </div>
+const FeaturesGrid = () => (
+  <section className="py-16 md:py-24 bg-background overflow-hidden">
+    <div className="container">
 
-          {/* <div className="hidden sm:flex bg-primary/5 border border-primary/10 rounded-md items-end justify-center pb-6 pt-4 gap-1">
-            {[40, 60, 30, 70, 45, 55, 35].map((h, i) => (
-              <motion.div
-                key={i}
-                className="w-1.5 bg-primary/60 rounded-full"
-                animate={{ height: [`${h}%`, `${20 + Math.random() * 60}%`, `${h}%`] }}
-                transition={{ duration: 1.5 + i * 0.1, repeat: Infinity, ease: "easeInOut" }}
-                style={{ height: `${h}%` }}
-              />
-            ))}
-          </div>
+      {/* Heading */}
+      <motion.div
+        className="mb-10 md:mb-14"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        <p className="text-xs text-accent font-semibold uppercase tracking-wider mb-2">
+          Features
+        </p>
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-foreground leading-tight">
+          Everything You Need<br />to Speak Better
+        </h2>
+        <p className="text-muted-foreground text-sm mt-2 max-w-sm">
+          Tools built around real practice — not just lessons.
+        </p>
+      </motion.div>
 
-          <div className="hidden sm:flex bg-gradient-to-br from-accent/10 to-primary/10 border border-accent/20 rounded-md items-center justify-center col-span-2 gap-4 px-6">
-            <div className="flex -space-x-3">
-              {["🧑💼", "👩🎓", "🧑🏫", "👨💻", "👩🔬", "🧑🎨"].map((emoji, i) => (
-                <div
-                  key={i}
-                  className="w-9 h-9 md:w-11 md:h-11 rounded-full bg-white border-2 border-accent/20 flex items-center justify-center text-base md:text-lg shadow-sm"
-                >
-                  {emoji}
-                </div>
-              ))}
-            </div>
-            <div className="text-left">
-              <p className="text-lg md:text-xl font-extrabold text-foreground">50K+</p>
-              <p className="text-[10px] md:text-xs text-muted-foreground font-medium">learners speaking daily</p>
-            </div>
-          </div> */}
-        </motion.div>
+      {/* Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {features.map((feature, i) => {
+          const Icon = feature.icon;
+          const isHero = feature.style === "gradient";
+
+          return (
+            <motion.div
+              key={feature.title}
+              className={`relative rounded-2xl p-6 flex flex-col gap-4 overflow-hidden group
+                ${cardClass[feature.style]}
+                ${isHero ? "lg:row-span-1" : ""}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.35, delay: i * 0.08 }}
+            >
+              {/* Subtle grid texture on hero card only */}
+              {isHero && (
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.07)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" />
+              )}
+
+              {/* Icon */}
+              <div className={`relative z-10 w-10 h-10 rounded-xl flex items-center justify-center
+                ${isHero ? "bg-white/15" : "bg-background/60"}`}
+              >
+                <Icon className={`w-5 h-5 ${iconClass[feature.style]}`} />
+              </div>
+
+              {/* Text */}
+              <div className="relative z-10 flex flex-col gap-1 flex-1">
+                <h3 className={`text-base font-bold ${titleClass[feature.style]}`}>
+                  {feature.title}
+                </h3>
+                <p className={`text-xs leading-relaxed ${descClass[feature.style]}`}>
+                  {feature.description}
+                </p>
+              </div>
+
+              {/* Arrow hint on hover */}
+              <div className={`relative z-10 self-end opacity-0 group-hover:opacity-100
+                transition-opacity duration-200 -mt-2`}
+              >
+                <ArrowUpRight className={`w-4 h-4 ${iconClass[feature.style]}`} />
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
-    </section>
-  );
-};
+
+    </div>
+  </section>
+);
 
 export default FeaturesGrid;

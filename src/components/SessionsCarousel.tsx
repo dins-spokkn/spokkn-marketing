@@ -19,10 +19,10 @@ interface Session {
   bookedUsers: string[];
 }
 
-const activityTypeColors: Record<string, { tag: string; bg: string }> = {
-  topicofdiscussion: { tag: "bg-accent text-accent-foreground", bg: "bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/10" },
-  debate: { tag: "bg-primary text-primary-foreground", bg: "bg-gradient-to-br from-accent/5 to-primary/5 border border-accent/10" },
-  storytelling: { tag: "bg-foreground text-primary-foreground", bg: "bg-gradient-to-br from-primary/5 to-transparent border border-primary/10" },
+const activityTypeColors: Record<string, string> = {
+  topicofdiscussion: "bg-accent text-accent-foreground",
+  debate: "bg-primary text-primary-foreground",
+  storytelling: "bg-foreground text-background",
 };
 
 const SessionsCarousel = () => {
@@ -42,43 +42,43 @@ const SessionsCarousel = () => {
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
-      const scrollAmount = 300;
-      scrollRef.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+      scrollRef.current.scrollBy({
+        left: direction === 'left' ? -300 : 300,
+        behavior: 'smooth',
+      });
     }
   };
 
-  const formatDate = (dateStr: string) => {
-    const date = new Date(dateStr);
-    return date.toLocaleDateString('en-US', { day: 'numeric', month: 'short' });
-  };
+  const formatDate = (dateStr: string) =>
+    new Date(dateStr).toLocaleDateString('en-US', { day: 'numeric', month: 'short' });
 
-  const formatTime = (dateStr: string) => {
-    const date = new Date(dateStr);
-    return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
-  };
+  const formatTime = (dateStr: string) =>
+    new Date(dateStr).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+
+  const formatActivityType = (type: string) =>
+    type.replace(/([A-Z])/g, ' $1').trim();
 
   return (
-    <section className="py-16 md:py-24 relative bg-white">
-      <div className="absolute inset-0 pointer-events-none" />
-      
+    <section className="py-16 md:py-24 bg-background">
       <div className="container">
-        {/* Header */}
+
+        {/* Top bar */}
         <div className="flex items-center justify-between mb-10">
           <div className="flex items-center gap-4">
             <Button variant="outline" size="sm">
-              POPULAR <span className="text-xs">↓</span>
+              POPULAR <span className="text-xs ml-1">↓</span>
             </Button>
             <h2 className="text-xl md:text-2xl font-bold text-foreground">Sessions</h2>
           </div>
           <Button variant="outline" size="sm">FEATURED</Button>
         </div>
 
-        {/* Section title */}
+        {/* Section heading */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
-            <p className="text-sm text-accent font-semibold mb-1">LIVE SESSIONS</p>
+            <p className="text-xs text-accent font-semibold uppercase tracking-wider mb-1">Live Sessions</p>
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-foreground leading-tight">
-              Join Upcoming Sessions<br />with Peers 
+              Join Upcoming Sessions<br />with Peers
             </h3>
           </div>
           <p className="text-sm text-muted-foreground max-w-sm">
@@ -86,21 +86,22 @@ const SessionsCarousel = () => {
           </p>
         </div>
 
-        {/* Cards Carousel */}
+        {/* Carousel */}
         <div className="relative">
           <Button
             onClick={() => scroll('left')}
             variant="outline"
             size="icon"
-            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 shadow-lg"
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 shadow-md"
           >
             <ChevronLeft className="w-5 h-5" />
           </Button>
+
           <Button
             onClick={() => scroll('right')}
             variant="outline"
             size="icon"
-            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 shadow-lg"
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 shadow-md"
           >
             <ChevronRight className="w-5 h-5" />
           </Button>
@@ -110,25 +111,28 @@ const SessionsCarousel = () => {
             className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
           >
             {loading ? (
-              <p className="text-muted-foreground">Loading sessions...</p>
+              <p className="text-muted-foreground text-sm">Loading sessions...</p>
             ) : sessions.length === 0 ? (
-              <p className="text-muted-foreground">No sessions available</p>
+              <p className="text-muted-foreground text-sm">No sessions available</p>
             ) : (
               <>
                 {sessions.map((session, i) => {
-                  const colors = activityTypeColors[session.activityType] || activityTypeColors.topicofdiscussion;
+                  const tagColor = activityTypeColors[session.activityType] ?? activityTypeColors.topicofdiscussion;
+
                   return (
                     <motion.div
                       key={session.id}
-                      className="min-w-[320px] md:min-w-[360px] snap-start rounded-3xl bg-white border border-border shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 flex flex-col group overflow-hidden"
+                      className="min-w-[320px] md:min-w-[360px] snap-start rounded-3xl bg-card border border-border shadow-md hover:shadow-xl transition-all hover:-translate-y-2 flex flex-col group overflow-hidden"
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ delay: i * 0.1, duration: 0.5 }}
                       viewport={{ once: true }}
                     >
-                      <div className="p-6 pb-4">
-                        <div className="flex items-start justify-between mb-4">
-                          <span className={`${colors.tag} text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full`}>
+                      {/* Card body */}
+                      <div className="p-6 flex flex-col gap-4 flex-1">
+                        {/* Level + Date */}
+                        <div className="flex items-start justify-between">
+                          <span className={`${tagColor} text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full`}>
                             {session.activityLevel}
                           </span>
                           <div className="text-right">
@@ -136,22 +140,25 @@ const SessionsCarousel = () => {
                             <p className="text-xs text-muted-foreground mt-0.5">{formatTime(session.startDateTime)}</p>
                           </div>
                         </div>
-                        
-                        <h4 className="text-xl font-bold text-foreground mb-3 line-clamp-2 min-h-[3.5rem]">{session.activityTitle}</h4>
-                        
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-xs font-bold text-white">
-                              {session.mentorName[0]}
-                            </div>
-                            <div>
-                              <p className="text-xs font-semibold text-foreground">{session.mentorName}</p>
-                              <p className="text-[10px] text-muted-foreground">Host</p>
-                            </div>
+
+                        {/* Title */}
+                        <h4 className="text-xl font-bold text-foreground line-clamp-2 min-h-[3.5rem]">
+                          {session.activityTitle}
+                        </h4>
+
+                        {/* Mentor */}
+                        <div className="flex items-center gap-2">
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-xs font-bold text-white shrink-0">
+                            {session.mentorName[0]}
+                          </div>
+                          <div>
+                            <p className="text-xs font-semibold text-foreground">{session.mentorName}</p>
+                            <p className="text-xs text-muted-foreground">Host</p>
                           </div>
                         </div>
 
-                        <div className="flex items-center gap-4 py-3 px-4 bg-secondary/50 rounded-xl mb-4">
+                        {/* Meta pills */}
+                        <div className="flex items-center gap-4 py-3 px-4 bg-secondary/50 rounded-xl">
                           <div className="flex items-center gap-1.5 text-xs text-foreground">
                             <Clock className="w-4 h-4 text-primary" />
                             <span className="font-medium">{session.durationMinutes} min</span>
@@ -163,16 +170,20 @@ const SessionsCarousel = () => {
                           </div>
                         </div>
 
-                        <p className="text-xs text-muted-foreground capitalize mb-4">{session.activityTheme} • {session.activityType.replace(/([A-Z])/g, ' $1').trim()}</p>
+                        {/* Theme & type */}
+                        <p className="text-xs text-muted-foreground capitalize">
+                          {session.activityTheme} • {formatActivityType(session.activityType)}
+                        </p>
                       </div>
 
-                      <div className="mt-auto p-6 pt-4 bg-gradient-to-br from-primary/5 to-accent/5 border-t border-border">
+                      {/* Card footer */}
+                      <div className="p-6 bg-gradient-to-br from-primary/5 to-accent/5 border-t border-border">
                         <div className="flex items-center justify-between">
                           <div>
                             <p className="text-xs text-muted-foreground mb-0.5">Price</p>
                             <p className="text-2xl font-bold text-primary">₹{session.price}</p>
                           </div>
-                          <Button size="sm" className="group-hover:gap-3 group-hover:pr-5">
+                          <Button size="sm" className="gap-1 group-hover:gap-3 group-hover:pr-5 transition-all">
                             Book Now
                             <ArrowUpRight className="w-4 h-4" />
                           </Button>
@@ -181,15 +192,15 @@ const SessionsCarousel = () => {
                     </motion.div>
                   );
                 })}
-                <motion.a
-                  href="https://spokkn.com/session"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="min-w-[320px] md:min-w-[360px] snap-start rounded-3xl border-2 border-dashed border-primary/30 bg-gradient-to-br from-primary/5 to-accent/5 hover:from-primary/10 hover:to-accent/10 transition-all flex flex-col items-center justify-center gap-6 p-12 group"
+
+                {/* View All card */}
+                <motion.div
+                  className="min-w-[320px] md:min-w-[360px] snap-start rounded-3xl border-2 border-dashed border-primary/30 bg-gradient-to-br from-primary/5 to-accent/5 hover:from-primary/10 hover:to-accent/10 transition-all flex flex-col items-center justify-center gap-6 p-12 group cursor-pointer"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: sessions.length * 0.1, duration: 0.5 }}
                   viewport={{ once: true }}
+                  onClick={() => window.open('https://spokkn.com/session', '_blank', 'noopener,noreferrer')}
                 >
                   <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-all shadow-lg">
                     <ArrowUpRight className="w-10 h-10 text-white" />
@@ -198,11 +209,12 @@ const SessionsCarousel = () => {
                     <p className="text-xl font-bold text-foreground mb-2">View All Sessions</p>
                     <p className="text-sm text-muted-foreground">Explore 50+ more activities</p>
                   </div>
-                </motion.a>
+                </motion.div>
               </>
             )}
           </div>
         </div>
+
       </div>
     </section>
   );
