@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 import FeaturesGrid from "@/components/FeaturesGrid";
 import MarqueeTicker from "@/components/MarqueeTicker";
 import PlatformOverview from "@/components/PlatformOverview";
@@ -28,6 +29,9 @@ const Index = () => {
       <FAQ />
       {/* <AppDownload /> */}
       <Footer />
+      <div className="fixed bottom-0 inset-x-0 h-16 pointer-events-none z-50">
+        <ProgressiveBlur height="100%" position="bottom"/>
+      </div>
     </div>
   );
 };

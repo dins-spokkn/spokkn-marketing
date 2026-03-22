@@ -1,11 +1,11 @@
 import { Users, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import episode1 from "@/assets/episode-1.jpg";
-import episode2 from "@/assets/episode-2.jpg";
-import episode3 from "@/assets/episode-3.jpg";
-import episode4 from "@/assets/episode-4.jpg";
-import episode5 from "@/assets/episode-5.jpg";
+import episode1 from "@/assets/activity1.webp";
+import episode2 from "@/assets/activity2.webp";
+import episode3 from "@/assets/activity3.webp";
+import episode4 from "@/assets/activity4.webp";
+import episode5 from "@/assets/activity5.webp";
 
 const topics = [
   { name: "Storytelling", count: 126, img: episode1 },
@@ -41,7 +41,7 @@ const ActivityList = () => {
           {/* Cursor follower image */}
           {hoveredIndex !== null && (
             <motion.div
-              className="hidden md:block fixed w-48 h-48 rounded-sm overflow-hidden shadow-2xl z-50 pointer-events-none"
+              className="hidden md:block fixed w-48 h-48 rounded-xs overflow-hidden shadow-2xl z-50 pointer-events-none"
               style={{
                 left: mousePos.x,
                 top: mousePos.y,
@@ -58,7 +58,7 @@ const ActivityList = () => {
                 className="w-full h-full object-cover" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
-              <span className="absolute bottom-2 left-2 text-white text-xs font-bold">
+              <span className="absolute bottom-2 left-2 text-black text-xs font-bold">
                 {topics[hoveredIndex].name}
               </span>
             </motion.div>

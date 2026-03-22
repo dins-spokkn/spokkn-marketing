@@ -78,7 +78,7 @@ const Hero = ({ screenshots = [] }: HeroProps) => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen flex flex-col items-center relative overflow-hidden rounded-2xl m-4 pb-10"
+      className="min-h-screen flex flex-col items-center relative overflow-hidden rounded-2xl m-4 pb-20"
       style={{ backgroundColor: "rgb(208, 233, 251)" }}
     >
       <Navbar />
@@ -188,6 +188,15 @@ const Hero = ({ screenshots = [] }: HeroProps) => {
           );
         })}
       </motion.div>
+
+      {/* Bottom fade */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+        style={{
+          background: "linear-gradient(to top, white, transparent)",
+          zIndex: 20
+        }}
+      />
     </section>
   );
 };
