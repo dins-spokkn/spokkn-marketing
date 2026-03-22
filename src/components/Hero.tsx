@@ -18,11 +18,11 @@ interface PhoneConfig {
 }
 
 const PHONES: PhoneConfig[] = [
-  { startOffsetY: 220, initialMb: 0,  height: 600, visibleFrom: "hidden xl:block", ariaLabel: "App screenshot 1" },
-  { startOffsetY: 60,  initialMb: 30, height: 600, visibleFrom: "hidden md:block", ariaLabel: "App screenshot 2" },
-  { startOffsetY: 0,   initialMb: 0,  height: 666, visibleFrom: "block",           ariaLabel: "App screenshot - main" },
-  { startOffsetY: 60,  initialMb: 30, height: 600, visibleFrom: "hidden md:block", ariaLabel: "App screenshot 4" },
-  { startOffsetY: 220, initialMb: 0,  height: 600, visibleFrom: "hidden xl:block", ariaLabel: "App screenshot 5" },
+  { startOffsetY: 220, initialMb: 0,  height: 600, visibleFrom: "hidden xl:block", ariaLabel: "App screenshot 1" , screenshot: "/app-ss4.png"},
+  { startOffsetY: 60,  initialMb: 30, height: 600, visibleFrom: "hidden md:block", ariaLabel: "App screenshot 2", screenshot: "/app-ss2.png" },
+  { startOffsetY: 0,   initialMb: 0,  height: 666, visibleFrom: "block",           ariaLabel: "App screenshot - main", screenshot: "/app-ss1.png" },
+  { startOffsetY: 60,  initialMb: 30, height: 600, visibleFrom: "hidden md:block", ariaLabel: "App screenshot 4", screenshot: "/app-ss3.png" },
+  { startOffsetY: 220, initialMb: 0,  height: 600, visibleFrom: "hidden xl:block", ariaLabel: "App screenshot 5", screenshot: "/app-ss5.png" },
 ];
 
 // Default screenshot used for any phone that doesn't specify its own

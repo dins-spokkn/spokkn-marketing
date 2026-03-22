@@ -59,7 +59,7 @@ const SessionsCarousel = () => {
     type.replace(/([A-Z])/g, ' $1').trim();
 
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="py-8 md:py-12 bg-background">
       <div className="container">
 
         {/* Top bar */}

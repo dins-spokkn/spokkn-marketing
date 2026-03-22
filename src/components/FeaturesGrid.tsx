@@ -31,36 +31,40 @@ const features = [
 type FeatureStyle = (typeof features)[number]["style"];
 
 const cardClass: Record<FeatureStyle, string> = {
-  gradient: "bg-gradient-to-br from-primary to-accent text-primary-foreground",
-  accent:   "bg-accent/10 border border-accent/20",
-  primary:  "bg-primary/10 border border-primary/20",
-  subtle:   "bg-gradient-to-br from-accent/10 to-primary/10 border border-border",
+  gradient: "bg-white/25 border border-white/30 backdrop-blur-sm",
+  accent:   "bg-white/15 border border-white/20 backdrop-blur-sm",
+  primary:  "bg-white/15 border border-white/20 backdrop-blur-sm",
+  subtle:   "bg-white/15 border border-white/20 backdrop-blur-sm",
 };
 
 const iconClass: Record<FeatureStyle, string> = {
-  gradient: "text-white/90",
-  accent:   "text-accent",
-  primary:  "text-primary",
-  subtle:   "text-accent",
+  gradient: "text-white",
+  accent:   "text-white",
+  primary:  "text-white",
+  subtle:   "text-white",
 };
 
 const titleClass: Record<FeatureStyle, string> = {
   gradient: "text-white",
-  accent:   "text-foreground",
-  primary:  "text-foreground",
-  subtle:   "text-foreground",
+  accent:   "text-white",
+  primary:  "text-white",
+  subtle:   "text-white",
 };
 
 const descClass: Record<FeatureStyle, string> = {
   gradient: "text-white/75",
-  accent:   "text-muted-foreground",
-  primary:  "text-muted-foreground",
-  subtle:   "text-muted-foreground",
+  accent:   "text-white/75",
+  primary:  "text-white/75",
+  subtle:   "text-white/75",
 };
 
 const FeaturesGrid = () => (
-  <section className="py-16 md:py-24 bg-background overflow-hidden">
-    <div className="container">
+  <section className="py-8 md:py-12 overflow-hidden rounded-2xl mx-4 relative" style={{ backgroundColor: "rgb(208, 233, 251)" }}>
+    {/* Gradient orbs */}
+    <div className="absolute -top-64 left-1/2 -translate-x-1/2 w-[min(1600px,200vw)] h-[900px] rounded-full opacity-70 pointer-events-none" style={{ backgroundColor: "rgb(80, 167, 227)", filter: "blur(120px)", zIndex: 0 }} />
+    <div className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full opacity-80 pointer-events-none" style={{ backgroundColor: "rgb(80, 167, 227)", filter: "blur(100px)", zIndex: 0 }} />
+
+    <div className="container relative z-10">
 
       {/* Heading */}
       <motion.div
@@ -70,13 +74,13 @@ const FeaturesGrid = () => (
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <p className="text-xs text-accent font-semibold uppercase tracking-wider mb-2">
+        <p className="text-xs text-white/80 font-semibold uppercase tracking-wider mb-2">
           Features
         </p>
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-foreground leading-tight">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white leading-tight">
           Everything You Need<br />to Speak Better
         </h2>
-        <p className="text-muted-foreground text-sm mt-2 max-w-sm">
+        <p className="text-white/75 text-sm mt-2 max-w-sm">
           Tools built around real practice — not just lessons.
         </p>
       </motion.div>
@@ -98,15 +102,8 @@ const FeaturesGrid = () => (
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.35, delay: i * 0.08 }}
             >
-              {/* Subtle grid texture on hero card only */}
-              {isHero && (
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.07)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" />
-              )}
-
               {/* Icon */}
-              <div className={`relative z-10 w-10 h-10 rounded-xl flex items-center justify-center
-                ${isHero ? "bg-white/15" : "bg-background/60"}`}
-              >
+              <div className="relative z-10 w-10 h-10 rounded-xl flex items-center justify-center bg-white/20">
                 <Icon className={`w-5 h-5 ${iconClass[feature.style]}`} />
               </div>
 

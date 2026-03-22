@@ -62,7 +62,6 @@
   :root {
     --background: 0, 0%, 100%;
 
-
     --foreground: 180, 2%, 12%;
 
     --card: 0 0% 100%;
@@ -143,6 +142,10 @@
     --sidebar-border: 216 20% 16%;
     --sidebar-ring: 207 90% 58%;
   }
+  :root {
+    --animate-marquee: marquee var(--duration) infinite linear;
+    --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  }
 }
 
 @layer base {
@@ -182,5 +185,24 @@
   }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+}
+
+@theme inline {
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+    }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+    }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+    }
   }
 }

@@ -38,59 +38,60 @@ const faqs = [
 ];
 
 const FAQ = () => (
-  <section className="py-16 md:py-24 bg-background">
-    <div className="container max-w-3xl">
+  <section className="py-8 md:py-12 bg-background">
+    <div className="container max-w-6xl">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 items-start">
+        
+        {/* Left side - Heading */}
+        <motion.div
+          className="lg:top-24"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-foreground leading-tight">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-muted-foreground text-sm mt-2 max-w-sm">
+            Everything you need to know before your first session.
+          </p>
+        </motion.div>
 
-      {/* Heading — left-aligned, matches other sections */}
-      <motion.div
-        className="mb-10 md:mb-14"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        <p className="text-xs text-accent font-semibold uppercase tracking-wider mb-2">
-          FAQ
-        </p>
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-foreground leading-tight">
-          Frequently Asked Questions
-        </h2>
-        <p className="text-muted-foreground text-sm mt-2 max-w-sm">
-          Everything you need to know before your first session.
-        </p>
-      </motion.div>
-
-      {/* Accordion — items stagger individually */}
-      <Accordion type="single" collapsible className="space-y-2.5">
-        {faqs.map((faq, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.35, delay: i * 0.06 }}
-          >
-            <AccordionItem
-              value={`item-${i}`}
-              className="border border-border rounded-2xl px-5 bg-card
-                hover:border-primary/30 transition-colors duration-200"
-            >
-              <AccordionTrigger
-                className="text-left font-semibold text-foreground
-                  hover:no-underline py-5 text-sm md:text-base"
+        {/* Right side - Accordion */}
+        <div className="lg:col-span-2">
+          <Accordion type="single" collapsible className="space-y-2.5">
+            {faqs.map((faq, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.35, delay: i * 0.06 }}
               >
-                {faq.q}
-              </AccordionTrigger>
-              <AccordionContent
-                className="text-muted-foreground text-sm leading-relaxed pb-5"
-              >
-                {faq.a}
-              </AccordionContent>
-            </AccordionItem>
-          </motion.div>
-        ))}
-      </Accordion>
+                <AccordionItem
+                  value={`item-${i}`}
+                  className="border border-border rounded-2xl px-5 bg-card
+                    hover:border-primary/30 transition-colors duration-200"
+                >
+                  <AccordionTrigger
+                    className="text-left font-semibold text-foreground
+                      hover:no-underline py-5 text-sm md:text-base"
+                  >
+                    {faq.q}
+                  </AccordionTrigger>
+                  <AccordionContent
+                    className="text-muted-foreground text-sm leading-relaxed pb-5"
+                  >
+                    {faq.a}
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
+            ))}
+          </Accordion>
+        </div>
 
+      </div>
     </div>
   </section>
 );

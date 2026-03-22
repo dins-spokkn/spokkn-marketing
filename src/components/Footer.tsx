@@ -19,12 +19,12 @@ const Footer = () => {
               <span className="text-white">Spoken English?</span>
             </h3>
           </div>
-          <div className="flex flex-col xs:flex-row items-stretch sm:items-start gap-3">
-            <Button variant="white" size="lg">
+          <div className="flex flex-col gap-3">
+            <Button variant="white" size="lg" className="w-full justify-center">
               <Download className="w-4 h-4" />
               Download App
             </Button>
-            <Button variant="white" size="lg" className="bg-white/20 hover:bg-white/30 text-white border-0 backdrop-blur-sm">
+            <Button variant="white" size="lg" className="w-full justify-center bg-white/20 hover:bg-white/30 text-white border-0 backdrop-blur-sm">
               Sign Up on Web
               <ArrowUpRight className="w-4 h-4" />
             </Button>
