@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+      <Navbar variant="dark" />
       <div className="container py-20 md:py-32 max-w-4xl">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">Privacy Policy</h1>
         <p className="text-muted-foreground mb-8">Last updated: January 2024</p>
@@ -25,9 +25,7 @@ const PrivacyPolicy = () => {
 
           <section>
             <h2 className="text-2xl font-semibold mb-4">2. How We Use Your Information</h2>
-            <p className="text-muted-foreground mb-4">
-              We use the information we collect to:
-            </p>
+            <p className="text-muted-foreground mb-4">We use the information we collect to:</p>
             <ul className="list-disc pl-6 text-muted-foreground space-y-2">
               <li>Provide and improve our services</li>
               <li>Match you with appropriate learning sessions</li>
@@ -52,9 +50,7 @@ const PrivacyPolicy = () => {
 
           <section>
             <h2 className="text-2xl font-semibold mb-4">5. Your Rights</h2>
-            <p className="text-muted-foreground mb-4">
-              You have the right to:
-            </p>
+            <p className="text-muted-foreground mb-4">You have the right to:</p>
             <ul className="list-disc pl-6 text-muted-foreground space-y-2">
               <li>Access your personal information</li>
               <li>Correct inaccurate data</li>

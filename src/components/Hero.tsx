@@ -78,7 +78,7 @@ const Hero = ({ screenshots = [] }: HeroProps) => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen flex flex-col items-center relative overflow-hidden rounded-2xl m-4"
+      className="min-h-screen flex flex-col items-center relative overflow-hidden rounded-2xl m-4 pb-10"
       style={{ backgroundColor: "rgb(208, 233, 251)" }}
     >
       <Navbar />

@@ -11,7 +11,7 @@ const sizes = {
 };
 
 const SpokknLogo = ({ className = "", size = "md", variant = "dark" }: SpokknLogoProps) => {
-  const logoSrc = variant === "light" ? "/logo/logo-dark.png" : "/logo/logo-light.png";
+  const logoSrc = variant === "dark" ? "/logo/logo-dark.png" : "/logo/logo-light.png";
   
   return (
     <img 

@@ -103,7 +103,7 @@ const HowItWorks = () => {
             </div>
 
             {steps.map((step, i) => (
-              <div key={step.number} className="flex gap-5">
+              <div key={step.number} className="flex gap-5 mb-16 last:mb-0">
 
                 {/* Timeline column */}
                 <div className="flex flex-col items-center">

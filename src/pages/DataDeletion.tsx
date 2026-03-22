@@ -6,7 +6,7 @@ import { Mail, Trash2, Shield, Clock } from "lucide-react";
 const DataDeletion = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+      <Navbar variant="dark" />
       <div className="container py-20 md:py-32 max-w-4xl">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">Account & Data Deletion</h1>
         <p className="text-muted-foreground mb-8">Spokkn - Request deletion of your account and associated data</p>

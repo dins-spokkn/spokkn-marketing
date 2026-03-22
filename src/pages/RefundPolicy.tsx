@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 const RefundPolicy = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+      <Navbar variant="dark" />
       <div className="container py-20 md:py-32 max-w-4xl">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">Refund Policy</h1>
         <p className="text-muted-foreground mb-8">Last updated: January 2024</p>
