@@ -1,10 +1,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import episode1 from "@/assets/episode-1.jpg";
-import episode2 from "@/assets/episode-2.jpg";
-import episode3 from "@/assets/episode-3.jpg";
-import episode4 from "@/assets/episode-4.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,25 +9,25 @@ const steps = [
     number: "1",
     title: "Book Session",
     description: "Schedule your speaking practice session at your preferred time",
-    img: episode1,
+    img: '/step1.png',
   },
   {
     number: "2",
     title: "Prepare Session",
     description: "Get ready with materials and topics for your upcoming session",
-    img: episode2,
+    img: '/step2.png',
   },
   {
     number: "3",
     title: "Join Session",
     description: "Connect with peers in real-time speaking practice",
-    img: episode3,
+    img: '/step3.png',
   },
   {
     number: "4",
     title: "Review & Improve",
     description: "Go through recorded session and transcript to analyze and improve your performance",
-    img: episode4,
+    img: '/step4.png',
   },
 ];
 
@@ -82,7 +78,7 @@ const HowItWorks = () => {
               <p className="text-sm font-semibold uppercase tracking-widest text-black mb-4">
                 Practice with Peers
               </p>
-              <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight text-foreground leading-tight">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight text-foreground max-w-4xl">
                 Start Speaking in 4 Simple Steps
               </h2>
               <p className="mt-4 text-muted-foreground text-lg">
@@ -119,7 +115,7 @@ const HowItWorks = () => {
 
                 {/* Card */}
                 <div className="step-card flex-1 mb-16 last:mb-0">
-                  <div className="rounded-3xl overflow-hidden bg-[#EEEFF0]">
+                  <div className="rounded-3xl overflow-hidden bg-white">
                     {/* Image */}
                     <div className="aspect-video w-full overflow-hidden">
                       <img

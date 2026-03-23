@@ -1,7 +1,6 @@
 import { ArrowUpRight, Clock, Users, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
 
 interface Session {
   id: string;
@@ -19,10 +18,10 @@ interface Session {
   bookedUsers: string[];
 }
 
-const activityTypeColors: Record<string, string> = {
-  topicofdiscussion: "bg-accent text-accent-foreground",
-  debate: "bg-primary text-primary-foreground",
-  storytelling: "bg-foreground text-background",
+const levelColors: Record<string, string> = {
+  beginner:     "bg-emerald-400/20 text-emerald-100 border border-emerald-400/30",
+  intermediate: "bg-amber-400/20   text-amber-100   border border-amber-400/30",
+  advanced:     "bg-rose-400/20    text-rose-100    border border-rose-400/30",
 };
 
 const SessionsCarousel = () => {
@@ -43,7 +42,7 @@ const SessionsCarousel = () => {
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: direction === 'left' ? -300 : 300,
+        left: direction === 'left' ? -380 : 380,
         behavior: 'smooth',
       });
     }
@@ -56,163 +55,180 @@ const SessionsCarousel = () => {
     new Date(dateStr).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
 
   const formatActivityType = (type: string) =>
-    type.replace(/([A-Z])/g, ' $1').trim();
+    type === 'topicofdiscussion' ? 'Topic Discussion'
+    : type.replace(/([A-Z])/g, ' $1').trim();
 
   return (
-    <section className="py-8 md:py-12 bg-background">
-      <div className="container">
+    <section
+      className="py-12 md:py-20 overflow-hidden relative rounded-2xl m-4"
+      style={{ backgroundColor: "rgb(208, 233, 251)" }}
+    >
+      {/* Background orbs */}
+      <div
+        className="absolute -top-64 left-1/2 -translate-x-1/2 w-[min(1600px,200vw)] h-[900px] rounded-full opacity-60 pointer-events-none"
+        style={{ backgroundColor: "rgb(80, 167, 227)", filter: "blur(120px)", zIndex: 0 }}
+      />
+      <div
+        className="absolute -bottom-32 right-0 w-[400px] h-[400px] rounded-full opacity-50 pointer-events-none"
+        style={{ backgroundColor: "rgb(50, 140, 210)", filter: "blur(90px)", zIndex: 0 }}
+      />
 
-        {/* Top bar */}
-        <div className="flex items-center justify-between mb-10">
-          <div className="flex items-center gap-4">
-            <Button variant="outline" size="sm">
-              POPULAR <span className="text-xs ml-1">↓</span>
-            </Button>
-            <h2 className="text-xl md:text-2xl font-bold text-foreground">Sessions</h2>
-          </div>
-          <Button variant="outline" size="sm">FEATURED</Button>
-        </div>
+      <div className="container relative z-10">
 
         {/* Section heading */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <motion.div
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-14"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           <div>
-            <p className="text-xs text-accent font-semibold uppercase tracking-wider mb-1">Live Sessions</p>
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-foreground leading-tight">
+            <p className="text-xs text-white/80 font-semibold uppercase tracking-wider mb-2">
+              Live Sessions
+            </p>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white leading-tight">
               Join Upcoming Sessions<br />with Peers
-            </h3>
+            </h2>
+            <p className="text-white/70 text-sm mt-2 max-w-sm">
+              Browse live sessions, join conversations, and practice English through structured activities.
+            </p>
           </div>
-          <p className="text-sm text-muted-foreground max-w-sm">
-            Browse live sessions, join conversations, and practice English through structured activities.
-          </p>
-        </div>
 
-        {/* Carousel */}
-        <div className="relative">
-          <Button
-            onClick={() => scroll('left')}
-            variant="outline"
-            size="icon"
-            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 shadow-md"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </Button>
+          {/* Nav arrows (desktop) */}
+          <div className="hidden md:flex items-center gap-2 shrink-0">
+            <button
+              onClick={() => scroll('left')}
+              className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/35 border border-white/30 flex items-center justify-center text-white transition-all backdrop-blur-sm"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => scroll('right')}
+              className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/35 border border-white/30 flex items-center justify-center text-white transition-all backdrop-blur-sm"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+        </motion.div>
 
-          <Button
-            onClick={() => scroll('right')}
-            variant="outline"
-            size="icon"
-            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 shadow-md"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </Button>
+        {/* Carousel track */}
+        <div
+          ref={scrollRef}
+          className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide"
+        >
+          {loading ? (
+            <p className="text-white/70 text-sm py-8">Loading sessions…</p>
+          ) : sessions.length === 0 ? (
+            <p className="text-white/70 text-sm py-8">No sessions available</p>
+          ) : (
+            <>
+              {sessions.map((session, i) => {
+                const levelKey = session.activityLevel?.toLowerCase();
+                const tagColor = levelColors[levelKey] ?? levelColors.beginner;
 
-          <div
-            ref={scrollRef}
-            className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
-          >
-            {loading ? (
-              <p className="text-muted-foreground text-sm">Loading sessions...</p>
-            ) : sessions.length === 0 ? (
-              <p className="text-muted-foreground text-sm">No sessions available</p>
-            ) : (
-              <>
-                {sessions.map((session, i) => {
-                  const tagColor = activityTypeColors[session.activityType] ?? activityTypeColors.topicofdiscussion;
+                return (
+                  <motion.div
+                    key={session.id}
+                    className="w-[280px] md:w-[300px] h-[320px] snap-start flex-shrink-0 rounded-2xl flex flex-col group overflow-hidden"
+                    style={{
+                      background: "rgba(255,255,255,0.18)",
+                      backdropFilter: "blur(16px)",
+                      border: "1px solid rgba(255,255,255,0.35)",
+                    }}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.08, duration: 0.45 }}
+                    viewport={{ once: true }}
+                  >
+                    {/* Card top: date + level */}
+                    <div className="px-5 pt-5 pb-4 flex items-start justify-between gap-3">
+                      <span className={`text-xs font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full ${tagColor}`}>
+                        {session.activityLevel}
+                      </span>
+                      <div className="text-right shrink-0">
+                        <p className="text-lg font-bold text-white leading-none">{formatDate(session.startDateTime)}</p>
+                        <p className="text-xs text-white/60 mt-0.5">{formatTime(session.startDateTime)}</p>
+                      </div>
+                    </div>
 
-                  return (
-                    <motion.div
-                      key={session.id}
-                      className="min-w-[320px] md:min-w-[360px] snap-start rounded-3xl bg-card border border-border shadow-md hover:shadow-xl transition-all hover:-translate-y-2 flex flex-col group overflow-hidden"
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: i * 0.1, duration: 0.5 }}
-                      viewport={{ once: true }}
-                    >
-                      {/* Card body */}
-                      <div className="p-6 flex flex-col gap-4 flex-1">
-                        {/* Level + Date */}
-                        <div className="flex items-start justify-between">
-                          <span className={`${tagColor} text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full`}>
-                            {session.activityLevel}
-                          </span>
-                          <div className="text-right">
-                            <p className="text-2xl font-bold text-primary">{formatDate(session.startDateTime)}</p>
-                            <p className="text-xs text-muted-foreground mt-0.5">{formatTime(session.startDateTime)}</p>
-                          </div>
+                    {/* Divider */}
+                    <div className="mx-5 h-px bg-white/15" />
+
+                    {/* Card body */}
+                    <div className="px-5 py-4 flex flex-col gap-3 flex-1">
+                      <h4 className="text-base font-bold text-white leading-snug truncate" title={session.activityTitle}>
+                        {session.activityTitle}
+                      </h4>
+
+                      {/* Mentor */}
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-7 h-7 rounded-full bg-white/25 flex items-center justify-center text-xs font-bold text-white shrink-0">
+                          {session.mentorName[0]}
                         </div>
-
-                        {/* Title */}
-                        <h4 className="text-xl font-bold text-foreground line-clamp-2 min-h-[3.5rem]">
-                          {session.activityTitle}
-                        </h4>
-
-                        {/* Mentor */}
-                        <div className="flex items-center gap-2">
-                          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-xs font-bold text-white shrink-0">
-                            {session.mentorName[0]}
-                          </div>
-                          <div>
-                            <p className="text-xs font-semibold text-foreground">{session.mentorName}</p>
-                            <p className="text-xs text-muted-foreground">Host</p>
-                          </div>
+                        <div>
+                          <p className="text-xs font-semibold text-white/90 leading-none">{session.mentorName}</p>
+                          <p className="text-xs text-white/50 mt-0.5">Host</p>
                         </div>
-
-                        {/* Meta pills */}
-                        <div className="flex items-center gap-4 py-3 px-4 bg-secondary/50 rounded-xl">
-                          <div className="flex items-center gap-1.5 text-xs text-foreground">
-                            <Clock className="w-4 h-4 text-primary" />
-                            <span className="font-medium">{session.durationMinutes} min</span>
-                          </div>
-                          <div className="w-px h-4 bg-border" />
-                          <div className="flex items-center gap-1.5 text-xs text-foreground">
-                            <Users className="w-4 h-4 text-accent" />
-                            <span className="font-medium">{session.slotsLeft} spots left</span>
-                          </div>
-                        </div>
-
-                        {/* Theme & type */}
-                        <p className="text-xs text-muted-foreground capitalize">
-                          {session.activityTheme} • {formatActivityType(session.activityType)}
-                        </p>
                       </div>
 
-                      {/* Card footer */}
-                      <div className="p-6 bg-gradient-to-br from-primary/5 to-accent/5 border-t border-border">
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <p className="text-xs text-muted-foreground mb-0.5">Price</p>
-                            <p className="text-2xl font-bold text-primary">₹{session.price}</p>
-                          </div>
-                          <Button size="sm" className="gap-1 group-hover:gap-3 group-hover:pr-5 transition-all">
-                            Book Now
-                            <ArrowUpRight className="w-4 h-4" />
-                          </Button>
+                      {/* Meta */}
+                      <div className="flex items-center gap-4 text-xs text-white/80">
+                        <div className="flex items-center gap-1.5">
+                          <Clock className="w-3.5 h-3.5 text-white/60" />
+                          <span>{session.durationMinutes} min</span>
+                        </div>
+                        <div className="w-px h-3 bg-white/25" />
+                        <div className="flex items-center gap-1.5">
+                          <Users className="w-3.5 h-3.5 text-white/60" />
+                          <span>{session.slotsLeft} spots left</span>
                         </div>
                       </div>
-                    </motion.div>
-                  );
-                })}
 
-                {/* View All card */}
-                <motion.div
-                  className="min-w-[320px] md:min-w-[360px] snap-start rounded-3xl border-2 border-dashed border-primary/30 bg-gradient-to-br from-primary/5 to-accent/5 hover:from-primary/10 hover:to-accent/10 transition-all flex flex-col items-center justify-center gap-6 p-12 group cursor-pointer"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: sessions.length * 0.1, duration: 0.5 }}
-                  viewport={{ once: true }}
-                  onClick={() => window.open('https://spokkn.com/session', '_blank', 'noopener,noreferrer')}
-                >
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-all shadow-lg">
-                    <ArrowUpRight className="w-10 h-10 text-white" />
-                  </div>
-                  <div className="text-center">
-                    <p className="text-xl font-bold text-foreground mb-2">View All Sessions</p>
-                    <p className="text-sm text-muted-foreground">Explore 50+ more activities</p>
-                  </div>
-                </motion.div>
-              </>
-            )}
-          </div>
+                      <p className="text-xs text-white/50 capitalize">
+                        {session.activityTheme} · {formatActivityType(session.activityType)}
+                      </p>
+                    </div>
+
+                    {/* Card footer */}
+                    <div className="px-5 py-4 bg-white/10 border-t border-white/15 flex items-center justify-between">
+                      <div>
+                        <p className="text-xs text-white/50 mb-0.5">Price</p>
+                        <p className="text-xl font-bold text-white">₹{session.price}</p>
+                      </div>
+                      <button className="flex items-center gap-1.5 bg-white text-[hsl(214,100%,34%)] text-xs font-bold px-4 py-2 rounded-full hover:bg-white/90 transition-all group-hover:gap-2.5 group-hover:pr-5">
+                        Book Now
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                  </motion.div>
+                );
+              })}
+
+              {/* View All card */}
+              <motion.div
+                className="w-[280px] md:w-[300px] h-[320px] snap-start flex-shrink-0 rounded-2xl flex flex-col items-center justify-center gap-5 p-10 group cursor-pointer"
+                style={{
+                  background: "rgba(255,255,255,0.10)",
+                  backdropFilter: "blur(16px)",
+                  border: "1.5px dashed rgba(255,255,255,0.35)",
+                }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: sessions.length * 0.08, duration: 0.45 }}
+                viewport={{ once: true }}
+                onClick={() => window.open('https://spokkn.com/session', '_blank', 'noopener,noreferrer')}
+              >
+                <div className="w-16 h-16 rounded-full bg-white/20 border border-white/30 flex items-center justify-center group-hover:bg-white/30 transition-all">
+                  <ArrowUpRight className="w-7 h-7 text-white" />
+                </div>
+                <div className="text-center">
+                  <p className="text-base font-bold text-white mb-1">View All Sessions</p>
+                  <p className="text-xs text-white/60">Explore 50+ more activities</p>
+                </div>
+              </motion.div>
+            </>
+          )}
         </div>
 
       </div>

@@ -59,7 +59,7 @@ const descClass: Record<FeatureStyle, string> = {
 };
 
 const FeaturesGrid = () => (
-  <section className="py-8 md:py-12 overflow-hidden rounded-2xl mx-4 relative" style={{ backgroundColor: "rgb(208, 233, 251)" }}>
+  <section className="py-8 md:py-12 overflow-hidden rounded-2xl m-4 relative" style={{ backgroundColor: "rgb(208, 233, 251)" }}>
     {/* Gradient orbs */}
     <div className="absolute -top-64 left-1/2 -translate-x-1/2 w-[min(1600px,200vw)] h-[900px] rounded-full opacity-70 pointer-events-none" style={{ backgroundColor: "rgb(80, 167, 227)", filter: "blur(120px)", zIndex: 0 }} />
     <div className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full opacity-80 pointer-events-none" style={{ backgroundColor: "rgb(80, 167, 227)", filter: "blur(100px)", zIndex: 0 }} />

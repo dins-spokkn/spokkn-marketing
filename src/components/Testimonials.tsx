@@ -202,7 +202,7 @@ const Testimonials = () => {
           Testimonials
         </p>
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-foreground leading-tight">
-          What Learners Say
+          What Peers Say
         </h2>
         <p className="text-muted-foreground text-sm mt-2 max-w-sm">
           Real stories from people who transformed their speaking confidence with Spokkn.
@@ -239,7 +239,7 @@ const Testimonials = () => {
                 </div>
                 <div>
                   <p className="font-semibold text-foreground text-sm leading-none">{t.name}</p>
-                  <p className="text-xs text-muted-foreground mt-0.5">Verified learner</p>
+                  {/* <p className="text-xs text-muted-foreground mt-0.5">Verified learner</p> */}
                 </div>
               </div>
             </div>
