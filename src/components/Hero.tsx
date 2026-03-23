@@ -96,7 +96,7 @@ const Hero = ({ screenshots = [] }: HeroProps) => {
       {/* Hero text */}
       <div className="container flex flex-col items-center text-center relative z-10 px-6 sm:px-10 pt-4">
         <motion.h1
-          className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.05] tracking-tight text-white max-w-3xl"
+          className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight text-white max-w-3xl"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
