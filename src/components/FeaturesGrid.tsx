@@ -43,7 +43,7 @@ const FeaturesGrid = () => (
         <p className="text-xs text-gray-600 font-semibold uppercase tracking-wider mb-2">
           Features
         </p>
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-900 leading-tight">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900 leading-tight">
           Everything You Need<br />to Speak Better
         </h2>
         <p className="text-gray-600 text-sm mt-2 max-w-sm">

@@ -94,7 +94,7 @@ const SessionsCarousel = () => {
             <p className="text-xs text-white/80 font-semibold uppercase tracking-wider mb-2">
               Live Sessions
             </p>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white leading-tight">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-white leading-tight">
               Join Upcoming Sessions<br />with Peers
             </h2>
             <p className="text-white/70 text-sm mt-2 max-w-sm">

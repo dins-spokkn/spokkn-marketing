@@ -447,15 +447,17 @@ const features = [
 /* ═══════════════════════════════════════════════════════════════════════════
    Grid layout
 ══════════════════════════════════════════════════════════════════════════════ */
+
+
 const FeatureIllustrations = () => {
   return (
     <>
       <style>{KEYFRAMES}</style>
-      <div className="grid grid-cols-3 grid-rows-2 gap-4 h-[680px]">
+      <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 md:h-[680px]">
 
         {/* Generate & Save — large */}
         <motion.div
-          className="col-span-2 bg-white border border-gray-200 rounded-2xl p-8 flex flex-col gap-6 group hover:shadow-lg transition-shadow overflow-hidden min-h-0"
+          className="md:col-span-2 bg-white border border-gray-200 rounded-2xl p-8 flex flex-col gap-6 group hover:shadow-lg transition-shadow overflow-hidden min-h-0"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -506,7 +508,7 @@ const FeatureIllustrations = () => {
 
         {/* Recordings — large */}
         <motion.div
-          className="col-span-2 bg-white border border-gray-200 rounded-2xl p-8 flex flex-col gap-6 group hover:shadow-lg transition-shadow overflow-hidden min-h-0"
+          className="md:col-span-2 bg-white border border-gray-200 rounded-2xl p-8 flex flex-col gap-6 group hover:shadow-lg transition-shadow overflow-hidden min-h-0"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

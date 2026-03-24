@@ -50,7 +50,7 @@ const Activities = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
             5 Ways to Practice Speaking
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">

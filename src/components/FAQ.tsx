@@ -50,7 +50,7 @@ const FAQ = () => (
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-foreground leading-tight">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-tight">
             Frequently Asked Questions
           </h2>
           <p className="text-muted-foreground text-sm mt-2 max-w-sm">

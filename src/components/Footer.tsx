@@ -14,7 +14,7 @@ const Footer = () => {
         {/* Big CTA before footer links */}
         <div className="mb-16 pb-16 border-b border-white/20 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
           <div>
-            <h3 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-white">
+            <h3 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6 text-white">
               Ready to Improve Your<br />
               <span className="text-white">Spoken English?</span>
             </h3>

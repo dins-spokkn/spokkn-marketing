@@ -20,7 +20,7 @@ const AppDownload = () => {
               <span className="text-sm font-semibold text-accent">Available on iOS & Android</span>
             </div>
             
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-6">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
               Take Spokkn Anywhere
             </h2>
             

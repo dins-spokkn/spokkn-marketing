@@ -28,7 +28,7 @@ const ActivityList = () => {
 
       <div className="container">
         <motion.h2
-          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-accent leading-[1.05] mb-12 relative"
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-accent leading-[1.05] mb-12 relative"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -80,7 +80,7 @@ const ActivityList = () => {
                 <span className="text-xs md:text-sm font-medium text-muted-foreground border border-border rounded-full w-10 h-10 flex items-center justify-center shrink-0">
                   0{i + 1}/
                 </span>
-                <span className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-extrabold text-foreground/20 hover:text-foreground transition-colors flex-1">
+                <span className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground/20 hover:text-foreground transition-colors flex-1">
                   {topic.name}
                 </span>
                 <span className="text-sm text-muted-foreground whitespace-nowrap">{topic.count} Activities</span>

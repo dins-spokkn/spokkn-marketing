@@ -116,10 +116,7 @@ const ActivityTypes = () => {
           viewport={{ once: true }}
           className="text-center mb-10 md:mb-12"
         >
-          <p className="text-xs text-accent font-semibold uppercase tracking-wider mb-2">
-            Activity Types
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-tight">
             Explore the 5 Activity Types
           </h2>
         </motion.div>
@@ -199,7 +196,7 @@ const ActivityTypes = () => {
                   Activity Type
                 </span>
                 <h3 
-                  className="text-2xl md:text-3xl font-extrabold mt-1 mb-3 leading-tight"
+                  className="text-2xl md:text-3xl font-bold tracking-tight mt-1 mb-3 leading-tight"
                   style={{ color: activityColors[activity.title] }}
                 >
                   {activity.title}

@@ -32,7 +32,7 @@ const PlatformOverview = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
             More Than Just Language Learning
           </h2>
         </motion.div>

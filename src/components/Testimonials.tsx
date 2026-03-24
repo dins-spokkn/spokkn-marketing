@@ -201,7 +201,7 @@ const Testimonials = () => {
         <p className="text-xs text-accent font-semibold uppercase tracking-wider mb-2">
           Testimonials
         </p>
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-foreground leading-tight">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-tight">
           What Peers Say
         </h2>
         <p className="text-muted-foreground text-sm mt-2 max-w-sm">
