@@ -32,7 +32,7 @@ const SessionsCarousel = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/sessions/explore-session-list?timezone=Asia/Calcutta')
+    fetch('/api/sessions?timezone=Asia/Calcutta')
       .then(res => res.json())
       .then(data => {
         setSessions(data.sessions?.slice(0, 5) || []);
@@ -41,17 +41,6 @@ const SessionsCarousel = () => {
       .catch(() => setLoading(false));
   }, []);
 
-  useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      if (scrollRef.current?.contains(e.target as Node)) {
-        if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-          e.preventDefault();
-        }
-      }
-    };
-    document.addEventListener('wheel', handleWheel, { passive: false });
-    return () => document.removeEventListener('wheel', handleWheel);
-  }, []);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
