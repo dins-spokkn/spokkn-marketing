@@ -122,7 +122,7 @@ const SessionsCarousel = () => {
         {/* Carousel track */}
         <div
           ref={scrollRef}
-          className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide"
+          className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide overflow-y-hidden "
         >
           {loading ? (
             <p className="text-white/70 text-sm py-8">Loading sessions…</p>
