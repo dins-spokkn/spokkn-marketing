@@ -18,10 +18,12 @@ interface Session {
   bookedUsers: string[];
 }
 
-const levelColors: Record<string, string> = {
-  beginner:     "bg-emerald-400/20 text-emerald-100 border border-emerald-400/30",
-  intermediate: "bg-amber-400/20   text-amber-100   border border-amber-400/30",
-  advanced:     "bg-rose-400/20    text-rose-100    border border-rose-400/30",
+const activityColors: Record<string, string> = {
+  'storytelling': '#6B3FA0',
+  'roleplay': '#1E6F64',
+  'improv': '#4B5FD3',
+  'debate': '#B1122D',
+  'topicofdiscussion': '#3F6FA1',
 };
 
 const SessionsCarousel = () => {
@@ -37,6 +39,18 @@ const SessionsCarousel = () => {
         setLoading(false);
       })
       .catch(() => setLoading(false));
+  }, []);
+
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      if (scrollRef.current?.contains(e.target as Node)) {
+        if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+          e.preventDefault();
+        }
+      }
+    };
+    document.addEventListener('wheel', handleWheel, { passive: false });
+    return () => document.removeEventListener('wheel', handleWheel);
   }, []);
 
   const scroll = (direction: 'left' | 'right') => {
@@ -56,7 +70,11 @@ const SessionsCarousel = () => {
 
   const formatActivityType = (type: string) =>
     type === 'topicofdiscussion' ? 'Topic Discussion'
+    : type === 'roleplay' ? 'Role Play'
     : type.replace(/([A-Z])/g, ' $1').trim();
+
+  const getActivityColor = (type: string) => 
+    activityColors[type.toLowerCase()] || '#3F6FA1';
 
   return (
     <section
@@ -124,28 +142,32 @@ const SessionsCarousel = () => {
           ) : (
             <>
               {sessions.map((session, i) => {
-                const levelKey = session.activityLevel?.toLowerCase();
-                const tagColor = levelColors[levelKey] ?? levelColors.beginner;
+                const activityColor = getActivityColor(session.activityType);
 
                 return (
                   <motion.div
                     key={session.id}
                     className="w-[280px] md:w-[300px] h-[320px] snap-start flex-shrink-0 rounded-2xl flex flex-col group overflow-hidden"
                     style={{
-                      background: "rgba(255,255,255,0.18)",
+                      background: `linear-gradient(135deg, ${activityColor}dd, ${activityColor}77)`,
                       backdropFilter: "blur(16px)",
-                      border: "1px solid rgba(255,255,255,0.35)",
+                      border: `1px solid ${activityColor}`,
                     }}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.08, duration: 0.45 }}
                     viewport={{ once: true }}
                   >
-                    {/* Card top: date + level */}
+                    {/* Card top: activity type, level + date */}
                     <div className="px-5 pt-5 pb-4 flex items-start justify-between gap-3">
-                      <span className={`text-xs font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full ${tagColor}`}>
-                        {session.activityLevel}
-                      </span>
+                      <div className="flex flex-col gap-1.5">
+                        <span className="text-xs font-semibold uppercase tracking-wide text-white/90">
+                          {formatActivityType(session.activityType)}
+                        </span>
+                        <span className="text-xs font-semibold uppercase tracking-wide px-2.5 py-0.5 rounded-full bg-white/20 text-white border border-white/30 w-fit">
+                          {session.activityLevel}
+                        </span>
+                      </div>
                       <div className="text-right shrink-0">
                         <p className="text-lg font-bold text-white leading-none">{formatDate(session.startDateTime)}</p>
                         <p className="text-xs text-white/60 mt-0.5">{formatTime(session.startDateTime)}</p>
@@ -186,17 +208,17 @@ const SessionsCarousel = () => {
                       </div>
 
                       <p className="text-xs text-white/50 capitalize">
-                        {session.activityTheme} · {formatActivityType(session.activityType)}
+                        {session.activityTheme}
                       </p>
                     </div>
 
                     {/* Card footer */}
-                    <div className="px-5 py-4 bg-white/10 border-t border-white/15 flex items-center justify-between">
+                    <div className="px-5 py-4 bg-black/10 border-t border-white/15 flex items-center justify-between">
                       <div>
                         <p className="text-xs text-white/50 mb-0.5">Price</p>
                         <p className="text-xl font-bold text-white">₹{session.price}</p>
                       </div>
-                      <button className="flex items-center gap-1.5 bg-white text-[hsl(214,100%,34%)] text-xs font-bold px-4 py-2 rounded-full hover:bg-white/90 transition-all group-hover:gap-2.5 group-hover:pr-5">
+                      <button className="flex items-center gap-1.5 bg-white text-xs font-bold px-4 py-2 rounded-full hover:bg-white/90 transition-all group-hover:gap-2.5 group-hover:pr-5" style={{ color: activityColor }}>
                         Book Now
                         <ArrowUpRight className="w-3.5 h-3.5" />
                       </button>

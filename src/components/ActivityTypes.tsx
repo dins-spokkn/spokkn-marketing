@@ -6,7 +6,32 @@ import episode4 from "@/assets/activity4.webp";
 import episode5 from "@/assets/activity5.webp";
 import { useState, useEffect, useCallback } from "react";
 
-const activities = [
+type ActivityType = 'Storytelling' | 'Role Play' | 'Improv' | 'Debate' | 'Topic Of Discussion';
+
+const activityColors: Record<ActivityType, string> = {
+  'Storytelling': '#6B3FA0',
+  'Role Play': '#1E6F64',
+  'Improv': '#4B5FD3',
+  'Debate': '#B1122D',
+  'Topic Of Discussion': '#3F6FA1',
+};
+
+const activityTints: Record<ActivityType, string> = {
+  'Storytelling': '#fcf9ff',
+  'Role Play': '#f7fffdfc',
+  'Improv': '#f9f9ff',
+  'Debate': '#fffafa',
+  'Topic Of Discussion': '#f5f9ff',
+};
+
+const activities: Array<{
+  img: string;
+  title: ActivityType;
+  tag: string;
+  description: string;
+  skills: string[];
+  bestFor: string;
+}> = [
   {
     img: episode1,
     title: "Storytelling",
@@ -45,7 +70,7 @@ const activities = [
   },
   {
     img: episode5,
-    title: "Topic of Discussion",
+    title: "Topic Of Discussion",
     tag: "05",
     description:
       "Dive into a topic that matters — culture, technology, society, lifestyle — and exchange perspectives with others. These open-ended conversations develop your ability to express nuanced opinions and engage in meaningful dialogue.",
@@ -103,24 +128,28 @@ const ActivityTypes = () => {
         <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
           {activities.map((a, i) => (
            
-           <button
-              key={a.title}
-              onClick={() => handleSelect(i)}
-              className={`relative px-5 py-2 rounded-xs text-sm font-btn font-semibold transition-colors duration-200 ${
-                i === activeIndex
-                  ? "bg-accent text-white"
-                  : "border border-gray-300 bg-white text-foreground hover:bg-gray-50"
-              }`}
-
-            >
-              {a.title}
+           <div className="relative">
+              <button
+                key={a.title}
+                onClick={() => handleSelect(i)}
+                className="px-5 py-2 rounded-xs text-sm font-btn font-semibold transition-colors duration-200"
+                style={{
+                  backgroundColor: i === activeIndex ? activityColors[a.title] : 'white',
+                  color: i === activeIndex ? 'white' : activityColors[a.title],
+                  border: i === activeIndex ? 'none' : `1px solid ${activityColors[a.title]}40`,
+                }}
+              >
+                {a.title}
+              </button>
               {/* Active progress underline */}
               {i === activeIndex && (
                 <motion.span
-                  className="absolute bottom-0 left-2 right-2 h-[2px] bg-white/40 rounded-full overflow-hidden"
+                  className="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full overflow-hidden"
+                  style={{ backgroundColor: `${activityColors[a.title]}20` }}
                 >
                   <motion.span
-                    className="absolute inset-y-0 left-0 bg-white rounded-full"
+                    className="absolute inset-y-0 left-0 rounded-full"
+                    style={{ backgroundColor: activityColors[a.title] }}
                     initial={{ width: "0%" }}
                     animate={{ width: "100%" }}
                     transition={{ duration: INTERVAL_MS / 1000, ease: "linear" }}
@@ -128,7 +157,7 @@ const ActivityTypes = () => {
                   />
                 </motion.span>
               )}
-            </button>
+            </div>
           ))}
         </div>
 
@@ -141,8 +170,12 @@ const ActivityTypes = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: direction * -40 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="rounded-3xl overflow-hidden border border-border bg-white grid md:grid-cols-2"
-            style={{ boxShadow: "var(--shadow-card-hover)" }}
+            className="rounded-3xl overflow-hidden border bg-white grid md:grid-cols-2"
+            style={{ 
+              boxShadow: "var(--shadow-card-hover)",
+              borderColor: `${activityColors[activity.title]}40`,
+              backgroundColor: activityTints[activity.title],
+            }}
           >
             {/* Left — image */}
             <div className="relative aspect-[4/3] md:aspect-auto bg-secondary/30 overflow-hidden">
@@ -159,10 +192,16 @@ const ActivityTypes = () => {
             {/* Right — content */}
             <div className="flex flex-col justify-between p-7 md:p-10">
               <div>
-                <span className="text-[10px] font-semibold text-accent uppercase tracking-wider">
+                <span 
+                  className="text-[10px] font-semibold uppercase tracking-wider"
+                  style={{ color: activityColors[activity.title] }}
+                >
                   Activity Type
                 </span>
-                <h3 className="text-2xl md:text-3xl font-extrabold text-foreground mt-1 mb-3 leading-tight">
+                <h3 
+                  className="text-2xl md:text-3xl font-extrabold mt-1 mb-3 leading-tight"
+                  style={{ color: activityColors[activity.title] }}
+                >
                   {activity.title}
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-6">
