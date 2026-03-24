@@ -1,6 +1,12 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  BookSessionIllustration,
+  PrepareSessionIllustration,
+  JoinSessionIllustration,
+  ReviewIllustration,
+} from "./StepIllustrations";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,25 +15,25 @@ const steps = [
     number: "1",
     title: "Book Session",
     description: "Schedule your speaking practice session at your preferred time",
-    img: '/step1.png',
+    Illustration: BookSessionIllustration,
   },
   {
     number: "2",
     title: "Prepare Session",
     description: "Get ready with materials and topics for your upcoming session",
-    img: '/step2.png',
+    Illustration: PrepareSessionIllustration,
   },
   {
     number: "3",
     title: "Join Session",
     description: "Connect with peers in real-time speaking practice",
-    img: '/step3.png',
+    Illustration: JoinSessionIllustration,
   },
   {
     number: "4",
     title: "Review & Improve",
     description: "Go through recorded session and transcript to analyze and improve your performance",
-    img: '/step4.png',
+    Illustration: ReviewIllustration,
   },
 ];
 
@@ -116,13 +122,9 @@ const HowItWorks = () => {
                 {/* Card */}
                 <div className="step-card flex-1 mb-16 last:mb-0">
                   <div className="rounded-3xl overflow-hidden bg-white">
-                    {/* Image */}
-                    <div className="aspect-video w-full overflow-hidden">
-                      <img
-                        src={step.img}
-                        alt={step.title}
-                        className="w-full h-full object-cover"
-                      />
+                    {/* Illustration */}
+                    <div className="w-full h-48 sm:h-56 md:h-64 overflow-hidden">
+                      <step.Illustration />
                     </div>
                     {/* Content */}
                     <div className="p-6">
