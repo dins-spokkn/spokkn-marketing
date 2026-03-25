@@ -207,7 +207,7 @@ const SessionsCarousel = () => {
                         <p className="text-xs text-white/50 mb-0.5">Price</p>
                         <p className="text-xl font-bold text-white">₹{session.price}</p>
                       </div>
-                      <button className="flex items-center gap-1.5 bg-white text-xs font-bold px-4 py-2 rounded-full hover:bg-white/90 transition-all group-hover:gap-2.5 group-hover:pr-5" style={{ color: activityColor }}>
+                      <button className="flex items-center gap-1.5 bg-white text-xs font-bold px-4 py-2 rounded-xs hover:bg-white/90 transition-all group-hover:gap-2.5 group-hover:pr-5" style={{ color: activityColor }}>
                         Book Now
                         <ArrowUpRight className="w-3.5 h-3.5" />
                       </button>
