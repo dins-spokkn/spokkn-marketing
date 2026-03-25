@@ -118,8 +118,11 @@ const HowItWorks = () => {
                   {/* Step number bubble */}
                   <div
                     className="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-semibold shrink-0 z-10"
-                    style={{ background: "linear-gradient(135deg,rgb(80, 167, 227) ,rgb(80, 167, 227,0.3))" }}
+                    style={{ background: "linear-gradient(135deg,#6FA9D6 0%,#4A6FA5 100%)" }}
+                        
+
                   >
+
                     {step.number}
                   </div>
                   {/* Connector — only between steps */}
@@ -135,34 +138,14 @@ const HowItWorks = () => {
                 */}
                 <div className="step-card flex-1 max-w-md">
                   <div
-                    className="rounded-2xl overflow-hidden relative shadow-lg"
-                    style={{
-                   backgroundColor: "rgb(208, 233, 251)"
-                    }}
+                    className="rounded-2xl overflow-hidden relative  bg-white border border-gray-200"
                   >
-                          <div
-        className="absolute -top-64 left-1/2 -translate-x-1/2 w-[min(160px,200vw)] h-[900px] rounded-full opacity-70 pointer-events-none"
-        style={{ backgroundColor: "rgb(80, 167, 227)", filter: "blur(120px)", zIndex: 0 }}
-      />
-      <div
-        className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full opacity-80 pointer-events-none"
-        style={{ backgroundColor: "rgb(80, 167, 227)", filter: "blur(100px)", zIndex: 0 }}
-      />
-                    {/*
-                      Subtle ambient glow — sized to stay within the card.
-                      w-64 h-64 means ~256px; properly clipped by overflow:hidden.
-                    */}
-                    <div
-                      className="absolute -top-20 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full opacity-30 pointer-events-none"
-                      style={{ backgroundColor: "#6FA9D6", filter: "blur(56px)" }}
-                    />
-
                     {/* Text block */}
                     <div className="px-6 pt-6 pb-4 relative z-10">
-                      <h3 className="text-xl font-semibold text-white mb-1">
+                      <h3 className="text-xl font-semibold text-black mb-1">
                         {step.title}
                       </h3>
-                      <p className="text-white/65 text-sm leading-relaxed">
+                      <p className="text-black/65 text-sm leading-relaxed">
                         {step.description}
                       </p>
                     </div>
@@ -176,7 +159,7 @@ const HowItWorks = () => {
                       visible on every edge.
                     */}
                     <div className="px-6 pb-6 relative z-10">
-                      <div className="w-full h-48 sm:h-56 md:h-64 relative overflow-hidden rounded-2xl border border-white/10">
+                      <div className="w-full h-48 sm:h-56 md:h-64 relative overflow-hidden rounded-2xl border border-gray-200">
                         <step.Illustration />
                       </div>
                     </div>
