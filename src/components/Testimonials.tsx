@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Marquee } from "@/components/ui/marquee";
 
@@ -185,6 +185,17 @@ const getInitials = (name: string) =>
 
 const Testimonials = () => {
   const [selected, setSelected] = useState<(typeof testimonials)[0] | null>(null);
+
+  useEffect(() => {
+    if (selected) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selected]);
 
   return (
   <section className="py-8 md:py-12 bg-background overflow-hidden">
